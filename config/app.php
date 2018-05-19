@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        VacinaOnline\Providers\AppServiceProvider::class,
+        VacinaOnline\Providers\AuthServiceProvider::class,
+        // VacinaOnline\Providers\BroadcastServiceProvider::class,
+        VacinaOnline\Providers\EventServiceProvider::class,
+        VacinaOnline\Providers\RouteServiceProvider::class,
 
     ],
 

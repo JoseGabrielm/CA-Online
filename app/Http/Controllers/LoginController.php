@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace VacinaOnline\Http\Controllers;
 
 use Illuminate\Http\Request;
 
