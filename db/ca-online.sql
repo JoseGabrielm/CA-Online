@@ -16,6 +16,10 @@ create table aplicador(
  	id_registro int,
     endereco varchar(255)
 );
+create table usuario(
+    id_usuario int PRIMARY KEY AUTO_INCREMENT,
+    id_registro int
+);
 create table admin(
     id_admin int primary key AUTO_INCREMENT,
     id_posto int,
@@ -36,4 +40,10 @@ create table vacina(
     data_de_validade date,
     data_adicionado date,
     data_atualizado date
+);
+
+create table historico_vacina(
+    id_vacina int,
+ 	id_usuario int,
+    data_aplicacao int  
 );
