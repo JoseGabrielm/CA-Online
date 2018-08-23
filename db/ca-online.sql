@@ -1,7 +1,8 @@
+drop database caonline;
 create database caonline;
 use caonline;
 
-create table registro(  
+create table registros(  
     id_registro int primary key AUTO_INCREMENT,
     nome varchar(255),
     username varchar(255),
@@ -10,30 +11,35 @@ create table registro(
     cpf varchar(255),
     nivel_acesso int not null
 );
-create table aplicador(
+create table aplicadores(
     id_aplicador int primary key AUTO_INCREMENT,
     id_posto int, 
  	id_registro int,
-    endereco varchar(255)
+    endereco varchar(255),
+    foreign key(id_registro) references  registros(id_registro)
+
 );
-create table usuario(
+create table usuarios(
     id_usuario int PRIMARY KEY AUTO_INCREMENT,
-    id_registro int
+    id_registro int,
+    foreign key(id_registro) references  registros(id_registro)
 );
-create table admin(
+create table admins(
     id_admin int primary key AUTO_INCREMENT,
-    id_posto int,
-    id_registro int
+    id_registro int,
+
+    
+    foreign key(id_registro) references  registros(id_registro)
 );
 
-create table posto(
+create table postos(
     id_posto int PRIMARY KEY AUTO_INCREMENT,
     cidade varchar(255),
     endereco varchar(255),
     estado varchar(255)
 );
 
-create table vacina(
+create table vacinas(
     id_vacina int PRIMARY KEY AUTO_INCREMENT,
   	lote int,
     tipo int,
@@ -42,8 +48,13 @@ create table vacina(
     data_atualizado date
 );
 
-create table historico_vacina(
+create table historico_vacinas(
     id_vacina int,
  	id_usuario int,
-    data_aplicacao int  
+    id_aplicador int,
+    data_aplicacao date,
+
+
+    foreign key(id_usuario) references  usuarios(id_usuario),  
+    foreign key(id_aplicador) references aplicadores(id_aplicador)
 );
