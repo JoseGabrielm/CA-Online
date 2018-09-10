@@ -10,16 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('{slug}', function () {
+    return view('index');
+}); // this will ensure all routes will serve index.php file
 
 Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/inicial', function(){
-
-    return view('inicial');
-});
-
+//Auth::routes();

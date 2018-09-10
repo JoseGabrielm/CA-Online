@@ -13,12 +13,14 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { PresentationComponent } from './presentation/presentation.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    PresentationComponent,
 ],
   imports: [
     BrowserModule,

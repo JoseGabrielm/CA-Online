@@ -12,5 +12,20 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Senha" [formControl]="passwordFormControl"
+                   [errorStateMatcher]="matcher">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+              Please enter a valid password address
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+
 </form>
-      </div>
+</div>
