@@ -150,6 +150,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Irazasyed\JwtAuthGuard\JwtAuthGuardServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -159,6 +160,8 @@ return [
         // VacinaOnline\Providers\BroadcastServiceProvider::class,
         VacinaOnline\Providers\EventServiceProvider::class,
         VacinaOnline\Providers\RouteServiceProvider::class,
+
+
 
     ],
 
