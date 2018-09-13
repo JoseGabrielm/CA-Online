@@ -8,15 +8,15 @@
     <mat-card>
         <mat-card-title></mat-card-title>
         <mat-card-subtitle>Preencha as lacunas abaixo para acessar sua carteira online de vacinação</mat-card-subtitle>
-        <form class="login-form">
+        <form class="login-form"  (ngSubmit)="onSubmit()"  [formGroup]="loginForm" #formDir="ngForm"> 
             <mat-form-field class="login-full-width">
-                <input matInput placeholder="Email" [formControl]="emailFormControl"
+                <input matInput placeholder="Email"  formControlName="email"
                 [errorStateMatcher]="matcher">
                 <mat-hint>Errors appear instantly!</mat-hint>
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
                     Please enter a valid email address
                 </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
+                <mat-error *ngIf="email.hasError('required')">
                     Email is <strong>required</strong>
                 </mat-error>
                 
@@ -24,22 +24,23 @@
             
             
             <mat-form-field class="login-full-width">
-                <input matInput placeholder="Senha" [formControl]="passwordFormControl"
+                <input matInput placeholder="Senha" formControlName="password"
                 [errorStateMatcher]="matcher"  [type]="hide ? 'password' : 'text'">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
                 
                 <mat-hint>Errors appear instantly!</mat-hint>
-                <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+                <mat-error *ngIf="password.hasError('email') && !password.hasError('required')">
                     Please enter a valid password address
                 </mat-error>
-                <mat-error *ngIf="passwordFormControl.hasError('required')">
+                <mat-error *ngIf="password.hasError('required')">
                     Password is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             
             <mat-grid-list cols="4" > 
                 <mat-grid-tile >
-                    <button mat-raised-button color="primary">Entrar</button>    
+                    
+                    <button   [disabled]="loginForm.invalid" type='submit' mat-raised-button color="primary">Entrar</button>    
                 </mat-grid-tile>
                 <mat-grid-tile >  
                     <button mat-raised-button color="accent">Esqueci Minha senha</button>    

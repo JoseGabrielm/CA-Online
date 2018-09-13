@@ -9,6 +9,7 @@ import { RegisterComponent } from './auth/register/register.component'
 
 import { MaterialModule } from './material/material.module'
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+
 import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -16,6 +17,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 
 import { EHeaderComponent } from './design/e-header/e-header.component';
 import { EHeaderTitleComponent } from './design/e-header/e-header-title/e-header-title.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { EHeaderTitleComponent } from './design/e-header/e-header-title/e-header
     EHeaderTitleComponent
 ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MainRoutesModule,

@@ -115,12 +115,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
 /* harmony import */ var _design_e_header_e_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./design/e-header/e-header.component */ "./src/app/design/e-header/e-header.component.ts");
 /* harmony import */ var _design_e_header_e_header_title_e_header_title_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./design/e-header/e-header-title/e-header-title.component */ "./src/app/design/e-header/e-header-title/e-header-title.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -149,6 +151,7 @@ var AppModule = /** @class */ (function () {
                 _design_e_header_e_header_title_e_header_title_component__WEBPACK_IMPORTED_MODULE_13__["EHeaderTitleComponent"]
             ],
             imports: [
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
                 _routes_main_routes_main_routes_module__WEBPACK_IMPORTED_MODULE_4__["MainRoutesModule"],
@@ -187,7 +190,7 @@ module.exports = "\r\n.login-form{\r\n    display: flex;\r\n    flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-e-header>\r\n        <app-e-header-title>Entrar</app-e-header-title>\r\n        </app-e-header>\r\n        <mat-sidenav-container class=\"example-container\" >\r\n\r\n<div [ngClass.lg]=\"'login-content-lg'\" >\r\n    <mat-card>\r\n        <mat-card-title></mat-card-title>\r\n        <mat-card-subtitle>Preencha as lacunas abaixo para acessar sua carteira online de vacinação</mat-card-subtitle>\r\n        <form class=\"login-form\">\r\n            <mat-form-field class=\"login-full-width\">\r\n                <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\"\r\n                [errorStateMatcher]=\"matcher\">\r\n                <mat-hint>Errors appear instantly!</mat-hint>\r\n                <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\r\n                    Please enter a valid email address\r\n                </mat-error>\r\n                <mat-error *ngIf=\"emailFormControl.hasError('required')\">\r\n                    Email is <strong>required</strong>\r\n                </mat-error>\r\n                \r\n            </mat-form-field>\r\n            \r\n            \r\n            <mat-form-field class=\"login-full-width\">\r\n                <input matInput placeholder=\"Senha\" [formControl]=\"passwordFormControl\"\r\n                [errorStateMatcher]=\"matcher\"  [type]=\"hide ? 'password' : 'text'\">\r\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n                \r\n                <mat-hint>Errors appear instantly!</mat-hint>\r\n                <mat-error *ngIf=\"passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')\">\r\n                    Please enter a valid password address\r\n                </mat-error>\r\n                <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n                    Password is <strong>required</strong>\r\n                </mat-error>\r\n            </mat-form-field>\r\n            \r\n            <mat-grid-list cols=\"4\" > \r\n                <mat-grid-tile >\r\n                    <button mat-raised-button color=\"primary\">Entrar</button>    \r\n                </mat-grid-tile>\r\n                <mat-grid-tile >  \r\n                    <button mat-raised-button color=\"accent\">Esqueci Minha senha</button>    \r\n                </mat-grid-tile>\r\n                \r\n            </mat-grid-list>\r\n            \r\n        </form>\r\n    </mat-card>\r\n</div>\r\n</mat-sidenav-container>\r\n"
+module.exports = "\r\n<app-e-header>\r\n        <app-e-header-title>Entrar</app-e-header-title>\r\n        </app-e-header>\r\n        <mat-sidenav-container class=\"example-container\" >\r\n\r\n<div [ngClass.lg]=\"'login-content-lg'\" >\r\n    <mat-card>\r\n        <mat-card-title></mat-card-title>\r\n        <mat-card-subtitle>Preencha as lacunas abaixo para acessar sua carteira online de vacinação</mat-card-subtitle>\r\n        <form class=\"login-form\"  (ngSubmit)=\"onSubmit()\"  [formGroup]=\"loginForm\" #formDir=\"ngForm\"> \r\n            <mat-form-field class=\"login-full-width\">\r\n                <input matInput placeholder=\"Email\"  formControlName=\"email\"\r\n                [errorStateMatcher]=\"matcher\">\r\n                <mat-hint>Errors appear instantly!</mat-hint>\r\n                <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\r\n                    Please enter a valid email address\r\n                </mat-error>\r\n                <mat-error *ngIf=\"email.hasError('required')\">\r\n                    Email is <strong>required</strong>\r\n                </mat-error>\r\n                \r\n            </mat-form-field>\r\n            \r\n            \r\n            <mat-form-field class=\"login-full-width\">\r\n                <input matInput placeholder=\"Senha\" formControlName=\"password\"\r\n                [errorStateMatcher]=\"matcher\"  [type]=\"hide ? 'password' : 'text'\">\r\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n                \r\n                <mat-hint>Errors appear instantly!</mat-hint>\r\n                <mat-error *ngIf=\"password.hasError('email') && !password.hasError('required')\">\r\n                    Please enter a valid password address\r\n                </mat-error>\r\n                <mat-error *ngIf=\"password.hasError('required')\">\r\n                    Password is <strong>required</strong>\r\n                </mat-error>\r\n            </mat-form-field>\r\n            \r\n            <mat-grid-list cols=\"4\" > \r\n                <mat-grid-tile >\r\n                    \r\n                    <button   [disabled]=\"loginForm.invalid\" type='submit' mat-raised-button color=\"primary\">Entrar</button>    \r\n                </mat-grid-tile>\r\n                <mat-grid-tile >  \r\n                    <button mat-raised-button color=\"accent\">Esqueci Minha senha</button>    \r\n                </mat-grid-tile>\r\n                \r\n            </mat-grid-list>\r\n            \r\n        </form>\r\n    </mat-card>\r\n</div>\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -223,15 +226,34 @@ var MyErrorStateMatcher = /** @class */ (function () {
 var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
         this.hide = true;
-        this.emailFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
-            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email,
-        ]);
-        this.passwordFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
-            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
-        ]);
         this.matcher = new MyErrorStateMatcher();
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        this.loginForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            'email': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email,
+            ]),
+            'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
+            ]),
+        });
+    };
+    Object.defineProperty(LoginComponent.prototype, "email", {
+        get: function () { return this.loginForm.get('email'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LoginComponent.prototype, "password", {
+        get: function () { return this.loginForm.get('password'); },
+        enumerable: true,
+        configurable: true
+    });
+    LoginComponent.prototype.onSubmit = function () {
+        // TODO: Use EventEmitter with form value
+        console.warn(this.email.value);
+        console.warn(this.password.value);
+    };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-login',
