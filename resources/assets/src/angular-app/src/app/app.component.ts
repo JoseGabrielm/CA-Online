@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CA Online';
+   menuRoutes = [
+       {name:'Login', route:'/login'},
+       {name:'Registrar', route:'/register'},
+       {name:'Sobre', route:'/register'},
+    ];
+
+  constructor() { 
+
+    var a = 1;
+  }
+
+  
 }

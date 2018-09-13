@@ -13,14 +13,19 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {FlexLayoutModule} from "@angular/flex-layout";
-import { PresentationComponent } from './presentation/presentation.component';
+
+import { EHeaderComponent } from './design/e-header/e-header.component';
+import { EHeaderTitleComponent } from './design/e-header/e-header-title/e-header-title.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PresentationComponent,
+    
+    EHeaderComponent,
+    EHeaderTitleComponent
 ],
   imports: [
     BrowserModule,
@@ -31,7 +36,6 @@ import { PresentationComponent } from './presentation/presentation.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

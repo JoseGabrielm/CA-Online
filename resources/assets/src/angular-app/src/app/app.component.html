@@ -1,16 +1,26 @@
+
 <mat-toolbar class='nav' color="primary">
     <button mat-button routerLink="/">
         <img width="60px" height="60px" src='imagens/logo.png'>
         <!-- <mat-icon>home</mat-icon>  -->
-        {{title}}
+        <h3> 
+            {{title}}
+        </h3>
     </button>
 
     <span class="fill-remaining-space"></span>
 
     <div fxLayout="row" fxHide fxShow.gt-sm>
-        <button mat-button routerLink="/products">Products</button>
+        <div *ngFor="let item of menuRoutes"> 
+            <button mat-button routerLink="{{item.route}}">{{item.name}}</button>
+        
+        </div>
+        
   
-        <button mat-button routerLink="/dashboard">Dashboard</button>
+<!-- 
+        <button mat-button routerLink="/login">Entrar</button>
+  
+        <button mat-button routerLink="/dashboard">Dashboard</button> -->
     </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
      <mat-icon>menu</mat-icon>
@@ -18,8 +28,14 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu>
-    <button mat-menu-item routerLink="/products">Products</button>
-    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+    <!-- <button mat-menu-item routerLink="/login">Entrar</button>
+    <button mat-menu-item routerLink="/dashboard">Dashboard</button> -->
+    <div *ngFor="let item of menuRoutes"> 
+        <button mat-menu-item routerLink="{{item.route}}">{{item.name}}</button>
+    
+    </div>
 </mat-menu>
 <router-outlet></router-outlet>
 <ngx-loading-bar></ngx-loading-bar>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar class='footer' color="primary"></mat-toolbar>

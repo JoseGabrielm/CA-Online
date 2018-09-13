@@ -1,0 +1,15 @@
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+
+}
+.login-full-width{
+
+    width: 100%;
+}
+
+.login-content{
+    margin: 50px;
+
+}

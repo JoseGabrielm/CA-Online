@@ -5,5 +5,18 @@
 }
 
 .nav{
-  background-color:darkgreen;
+    color:white;
+    
+    background-color: rgba(0, 128, 0, 0.753);
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+    height: auto;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: .3px;
+}
+
+.footer{
+
+
+    background-color: rgba(0, 128, 0, 0.651);
 }

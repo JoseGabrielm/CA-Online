@@ -17,11 +17,18 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class LoginComponent  {
 
-  
+    hide = true;
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
+
+
+  passwordFormControl = new FormControl('', [
+    Validators.required,
+   
+  ]);
+
 
   matcher = new MyErrorStateMatcher();
 }
