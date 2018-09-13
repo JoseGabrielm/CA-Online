@@ -1,12 +1,15 @@
 
 <mat-toolbar class='nav' color="primary">
-    <button mat-button routerLink="/">
-        <img width="60px" height="60px" src='imagens/logo.png'>
-        <!-- <mat-icon>home</mat-icon>  -->
-        <h3> 
-            {{title}}
-        </h3>
-    </button>
+    <div >
+
+        <button mat-button routerLink="/">
+            <img width="60px" height="60px" src='imagens/logo.png'>
+            <!-- <mat-icon>home</mat-icon>  -->
+            <h3> 
+                {{title}}
+            </h3>
+        </button>
+    </div>
 
     <span class="fill-remaining-space"></span>
 
@@ -35,7 +38,10 @@
     
     </div>
 </mat-menu>
-<router-outlet></router-outlet>
+
+<router-outlet>
+    
+</router-outlet>
 <ngx-loading-bar></ngx-loading-bar>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar class='footer' color="primary"></mat-toolbar>

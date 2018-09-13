@@ -9,7 +9,10 @@
     width: 100%;
 }
 
-.login-content{
-    margin: 50px;
+.login-content-lg{
+    margin: 20px;
+
+    margin-right: 400px;
+    margin-left: 400px;
 
 }
