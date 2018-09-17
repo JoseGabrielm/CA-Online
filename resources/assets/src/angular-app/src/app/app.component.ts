@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './auth/services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CA Online';
-   menuRoutes = [
-       {name:'Login', route:'/login'},
-       {name:'Registrar', route:'/register'},
-       {name:'Sobre', route:'/register'},
-    ];
 
-  constructor() { 
+  constructor(private loginService:LoginService) { 
+    
+  }
 
-    var a = 1;
+  ngOnInit(){
+    this.loginService.isLoggedIn();
   }
 
   

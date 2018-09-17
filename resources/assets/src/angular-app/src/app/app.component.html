@@ -14,17 +14,22 @@
     <span class="fill-remaining-space"></span>
 
     <div fxLayout="row" fxHide fxShow.gt-sm>
-        <div *ngFor="let item of menuRoutes"> 
-            <button mat-button routerLink="{{item.route}}">{{item.name}}</button>
-        
+        <div *ngIf="loginService.loggedIn|async ; else loggedOut" >
+            <button mat-button routerLink="/logout"> Sair </button>
+
         </div>
-        
+        <ng-template #loggedOut>
+                <button  routerLinkActive="active" mat-button routerLink="/login"> Login </button>
+            
+                <button  routerLinkActive="active" mat-button routerLink="/register"> Registrar </button>             
+        </ng-template>
+
+    </div>     
   
 <!-- 
         <button mat-button routerLink="/login">Entrar</button>
   
         <button mat-button routerLink="/dashboard">Dashboard</button> -->
-    </div>
     <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
      <mat-icon>menu</mat-icon>
     </button>
@@ -33,10 +38,7 @@
 <mat-menu x-position="before" #menu>
     <!-- <button mat-menu-item routerLink="/login">Entrar</button>
     <button mat-menu-item routerLink="/dashboard">Dashboard</button> -->
-    <div *ngFor="let item of menuRoutes"> 
-        <button mat-menu-item routerLink="{{item.route}}">{{item.name}}</button>
-    
-    </div>
+
 </mat-menu>
 
 <router-outlet>

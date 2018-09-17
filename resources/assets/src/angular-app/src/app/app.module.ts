@@ -18,7 +18,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { EHeaderComponent } from './design/e-header/e-header.component';
 import { EHeaderTitleComponent } from './design/e-header/e-header-title/e-header-title.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NgxUiLoaderModule } from  'ngx-ui-loader';
+import { CityPipe } from './Tools/city.pipe';
+import { InterceptorModule } from './api/interceptor/interceptor.module';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
+import { DashboardApplicatorComponent } from './dashboard/dashboard-applicator/dashboard-applicator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,11 +34,17 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     
     EHeaderComponent,
-    EHeaderTitleComponent
+    EHeaderTitleComponent,
+    PageNotFoundComponent,
+    CityPipe,
+    LogoutComponent,
+    DashboardComponent,
+    DashboardAdminComponent,
+    DashboardApplicatorComponent
 ],
   imports: [
-    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MainRoutesModule,
     MaterialModule,
@@ -39,8 +52,13 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxUiLoaderModule,
+    InterceptorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  
+}

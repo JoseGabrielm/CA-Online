@@ -18,7 +18,7 @@ module.exports = "body {\n  margin: 0%; }\n\n/**\n * Applies styles for users in
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\n/* @import \"~@angular/material/prebuilt-themes/indigo-pink.css\"; */\r\n/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */\r\nbody{\r\n    font-family: Roboto,\"Helvetica Neue Light\",\"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif;\r\n\r\n}"
+module.exports = "/* You can add global styles to this file, and also import other style files */\n/* @import \"~@angular/material/prebuilt-themes/indigo-pink.css\"; */\n/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */\nbody{\n    font-family: Roboto,\"Helvetica Neue Light\",\"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif;\n\n}"
 
 /***/ }),
 
@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\manager\Desktop\tcc\ca-online\resources\assets\src\angular-app\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\manager\Desktop\tcc\ca-online\resources\assets\src\angular-app\src\theme.scss */"./src/theme.scss");
+__webpack_require__(/*! /var/www/html/CA-Online/resources/assets/src/angular-app/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /var/www/html/CA-Online/resources/assets/src/angular-app/src/theme.scss */"./src/theme.scss");
 
 
 /***/ })
