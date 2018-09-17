@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-e-header',
@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./e-header.component.css']
 })
 export class EHeaderComponent implements OnInit {
-  @Input() title: string;   
-  @Input() contents: Array<string>;
+ 
   constructor() { 
 
     

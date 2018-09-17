@@ -40,7 +40,7 @@ import { DashboardApplicatorComponent } from './dashboard/dashboard-applicator/d
     LogoutComponent,
     DashboardComponent,
     DashboardAdminComponent,
-    DashboardApplicatorComponent
+    DashboardApplicatorComponent,
 ],
   imports: [
     BrowserModule,

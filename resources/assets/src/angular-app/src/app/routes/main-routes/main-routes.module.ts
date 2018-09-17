@@ -11,6 +11,7 @@ import { AuthGuard } from '../../auth/auth.guard';
 import { DashboardApplicatorComponent } from '../../dashboard/dashboard-applicator/dashboard-applicator.component';
 import { AuthApplicatorGuard } from '../../auth/auth-applicator.guard';
 import { AuthAdminGuard } from '../../auth/auth-admin.guard';
+import { DashboardAdminComponent } from '../../dashboard/dashboard-admin/dashboard-admin.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard,AuthApplicatorGuard],
   },
   {
-    path: 'dashboard-admin', component: DashboardComponent,
+    path: 'dashboard-admin', component: DashboardAdminComponent,
     canActivate: [AuthGuard,AuthAdminGuard],
   },
   { path: '', component: HomeComponent },

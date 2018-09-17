@@ -9,3 +9,11 @@
     margin:30px;
     
 }
+
+:host ::ng-deep div {
+    margin:0 !important;
+    
+}
+
+
+
