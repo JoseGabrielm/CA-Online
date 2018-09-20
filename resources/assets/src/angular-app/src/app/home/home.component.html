@@ -1,124 +1,123 @@
-
 <app-e-header>
-        <app-e-header-title  >
-            <div style='text-align: center; font-weight: 300;padding:50px;'>
-                    <h1 style='font-size:56px!important;
-                        font: 400 24px/32px Roboto,"Helvetica Neue",sans-serif;
-                        ' >
-        
-                            Carteira de Vacinação Online
-                        </h1>
-                        <h2 style='font-size: 18px;
+    <app-e-header-title>
+        <div >
+            <h1>
+
+                Carteira de Vacinação Online
+            </h1>
+            <h2 style='font-size: 18px;
                         font-weight: 300;
-                        line-height: 28px;' > 
-                                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!
-                        </h2>
-       
-                
-                        <button mat-raised-button routerLink='/login' > Começar a aventura!</button>   
-                    </div>
-        
-      
+                        line-height: 28px;'>
+                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!
+            </h2>
+
+
+            <button mat-raised-button routerLink='/login'> Começar a aventura!</button>
+        </div>
+
+
 
     </app-e-header-title>
 
 
-        
+
 </app-e-header>
 <mat-sidenav-container class="example-container">
 
-  
-    <mat-grid-list class='gtile' cols="2" rowHeight="2:1">
+    <mat-grid-list class='gtile ' [cols]="columnNum"  gutterSize='2em'>
         <mat-grid-tile>
 
-                <img 
-                src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'
-                >
+            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>
         </mat-grid-tile>
-        
+
         <mat-grid-tile>
-            <mat-card>
-                <mat-card-content>
+                <mat-card class='home-content'>
 
+                    <mat-card-content>
 
+                        
+                        
+                        
+                        Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância
+                        Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate
+                        da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar
+                        o Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação
+                        e encaminhamento dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente
+                        também não se lembra se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se
+                        imunizar novamente. Vale destacar que a campanha de febre amarela é preventiva e voltada aos moradores
+                        da zona norte de São Paulo. A ação começou no dia 21 de outubro, após um macaco ser encontrado morto
+                        no Horto Florestal vítima de febre amarela. Dose única para toda a vida A vacina contra a febre amarela
+                        é a melhor forma de se prevenir da doença, e uma única dose é o suficiente para se proteger por toda
+                        a vida. Mas nem todos devem tomar. O imunizante não é indicado para gestantes, mulheres amamentando
+                        crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento quimioterápico,
+                        radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais de 500
+                        mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar
+                        moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente
+                        na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas
+                        de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram vacinados,
+                        segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas que
+                        precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui
+                    </mat-card-content>
                     
+                </mat-card>
+                
+            </mat-grid-tile>
+                
+                
+                <mat-grid-tile>
+            <mat-card class='home-content'>
+                <mat-card-content>
+                        
+
+
                     Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância
-                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate da 2ª
-                    via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o Programa Nacional
-                    de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento dos questionamentos
-                    das atividades de vacinação das unidades de saúde. Muita gente também não se lembra se já tomou ou não a
-                    vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale destacar que a campanha
-                    de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo. A ação começou no dia 21
-                    de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de febre amarela. Dose única para
-                    toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir da doença, e uma única dose é
-                    o suficiente para se proteger por toda a vida. Mas nem todos devem tomar. O imunizante não é indicado para
-                    gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento
-                    quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais
-                    de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar moradores
-                    da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente na quinta-feira (2),
-                    feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas de Saúde), que atenderam até
-                    as 14h. Até agora, 539.949 moradores da zona norte foram vacinados, segundo a secretaria de saúde. Vale ressaltar
-                    que as ações de rotina — vacinação para pessoas que precisam viajar para áreas de risco, seguem nos demais
-                    postos da cidade. Veja a lista completa aqui
+                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate
+                    da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o
+                    Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento
+                    dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente também não se lembra
+                    se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale
+                    destacar que a campanha de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo.
+                    A ação começou no dia 21 de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de
+                    febre amarela. Dose única para toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir
+                    da doença, e uma única dose é o suficiente para se proteger por toda a vida. Mas nem todos devem tomar.
+                    O imunizante não é indicado para gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas,
+                    como pacientes em tratamento quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores
+                    de Lúpus, por exemplo). Mais de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa
+                    da campanha, que era de vacinar moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera,
+                    foi batida. Somente na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs
+                    (Unidades Básicas de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram
+                    vacinados, segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas
+                    que precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>
-        
-        <br><br><br>
 
         <mat-grid-tile>
-            <mat-card>
-                <mat-card-content>
-
-
-                    
-                    Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância
-                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate da 2ª
-                    via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o Programa Nacional
-                    de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento dos questionamentos
-                    das atividades de vacinação das unidades de saúde. Muita gente também não se lembra se já tomou ou não a
-                    vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale destacar que a campanha
-                    de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo. A ação começou no dia 21
-                    de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de febre amarela. Dose única para
-                    toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir da doença, e uma única dose é
-                    o suficiente para se proteger por toda a vida. Mas nem todos devem tomar. O imunizante não é indicado para
-                    gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento
-                    quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais
-                    de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar moradores
-                    da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente na quinta-feira (2),
-                    feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas de Saúde), que atenderam até
-                    as 14h. Até agora, 539.949 moradores da zona norte foram vacinados, segundo a secretaria de saúde. Vale ressaltar
-                    que as ações de rotina — vacinação para pessoas que precisam viajar para áreas de risco, seguem nos demais
-                    postos da cidade. Veja a lista completa aqui
-                </mat-card-content>
-            </mat-card>
+            
+            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-
-                <img 
-                src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'
-                >
-        </mat-grid-tile>
-        
     </mat-grid-list>
 
     <mat-card class='home-content'>
 
 
         <mat-card-title>
-                Alguma coisa
+            Alguma coisa
 
 
 
             <!-- This fills the remaining space of the current row -->
         </mat-card-title>
         <mat-card-subtitle>
-                blblavbl
+            blblavbl
         </mat-card-subtitle>
         <mat-card-content>
-                <div >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
 
         </mat-card-content>
@@ -126,6 +125,6 @@
     </mat-card>
 
 
-    
+
 
 </mat-sidenav-container>

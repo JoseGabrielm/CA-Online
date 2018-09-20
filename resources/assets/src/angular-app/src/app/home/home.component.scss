@@ -1,0 +1,38 @@
+
+.home-content{
+    margin:3em;
+    padding:2em;
+
+}
+
+.gtile{
+    margin:30px;
+    margin-top:1em;
+    
+}
+
+:host ::ng-deep .e-header {
+    margin:0 !important;
+
+   div{
+
+       text-align: center; font-weight: 300;
+       padding:50px;
+   }
+    h1{
+        line-height: 56px !important;
+        font-size:56px!important;
+    font: 400 24px/32px Roboto,"Helvetica Neue",sans-serif;
+    }
+}
+
+
+
+
+
+
+
+.example-container{
+    
+    flex:1 !important;
+}

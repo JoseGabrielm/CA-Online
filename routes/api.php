@@ -19,6 +19,13 @@ Route::post('logout', 'APILoginController@logout');
 
 Route::post('register','APIRegisterController@register');
 
+Route::group([
+
+    'middleware' => 'jwt.auth'
+], function(){
+
+    Route::get('historico','HistoricoController@getHistorico');
+});
 Route::middleware('jwt.auth')->get('user', function(Request $request) {
     return auth()->user();
 });

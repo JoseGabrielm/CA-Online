@@ -2,7 +2,7 @@
 <mat-toolbar class='nav' color="primary">
     <div >
 
-        <button mat-button routerLink="/" style="margin-top:5px">
+        <button  routerLinkActive="active"  mat-button routerLink="/home" style="margin-top:5px">
             <!-- <mat-icon>home</mat-icon>  -->
             <img width="60px" height="60px" src='imagens/logo.png'>
             <h3> 
@@ -16,6 +16,7 @@
     <div fxLayout="row" fxHide fxShow.gt-sm>
         <div *ngIf="loginService.loggedIn|async ; else loggedOut" >
             <button mat-button routerLink="/logout"> Sair </button>
+            <button mat-button routerLink="/dashboard"> Dashboard </button>
 
         </div>
         <ng-template #loggedOut>

@@ -1,10 +1,10 @@
 <app-e-header>
     <app-e-header-title>Entrar</app-e-header-title>
 </app-e-header>
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container  [ngClass.lg]="'login-content-lg'" class="example-container">
 
 
-    <div [ngClass.lg]="'login-content-lg'">
+    <div >
         <mat-card>
             <mat-error *ngIf="formSubmitError.length > 0">
                 {{formSubmitError}}
@@ -53,4 +53,3 @@
         </mat-card>
     </div>
 </mat-sidenav-container>
-<ngx-ui-loader></ngx-ui-loader>

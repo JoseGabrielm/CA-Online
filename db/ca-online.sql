@@ -35,7 +35,7 @@ create table postos(
 );
 
 create table vacinas(
-    id_vacina int PRIMARY KEY AUTO_INCREMENT,
+    id int PRIMARY KEY AUTO_INCREMENT,
   	lote int,
     tipo int,
     data_de_validade date,
@@ -43,7 +43,7 @@ create table vacinas(
     updated_at  date
 );
 
-create table historico_vacinas(
+create table historicovacinas(
     id_vacina int,
  	id_registro int,
     id_aplicador int,
@@ -53,4 +53,5 @@ create table historico_vacinas(
 
     foreign key(id_registro) references  registros(id),  
     foreign key(id_aplicador) references aplicadores(id)
+    foreign key(id_vacina) references vacinas(id)
 );

@@ -6,6 +6,8 @@ import { Login } from '../services/login'
 
 import { NgxUiLoaderService } from 'ngx-ui-loader'; // Import NgxUiLoaderService
 import { Router } from '@angular/router';
+import { Observable, timer } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
@@ -21,6 +23,7 @@ class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
 
+    tt : Observable<number>;
     hide = true;
     loginForm: FormGroup;
     LoginData: Login;
@@ -31,6 +34,7 @@ export class LoginComponent {
         private router:Router) {
     }
     ngOnInit(): void {
+        
         this.formSubmitError = "";
         this.LoginData = {
             email: '',
@@ -60,6 +64,9 @@ export class LoginComponent {
     loginUnauthorized() {
         this.formSubmitError = "Email ou senha incorretos";
     }
+    onDestroy(){
+        console.log('destroy);')
+    }
     onSubmit() {
         this.ngxService.start(); // start foreground loading with 'default' id
         this.LoginData = {
@@ -70,8 +77,19 @@ export class LoginComponent {
             data => {
                 console.log(data);
                 localStorage.setItem('token', data['token']);
+
                 this.service.isLoggedIn();
-                
+     
+                timer(0,1000*60).subscribe(
+                    function(){
+                        this.loginService.logout()
+                        .pipe(finalize(() => {
+                            localStorage.removeItem('token');
+                            
+                            this.loginService.isLoggedIn();
+                        } ));
+                    }                   
+                );
                 this.router.navigate(['/dashboard']);
 
             },

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService,UserModel } from '../api/services/user.service';
-import { finalize } from 'rxjs/operators';
+import { finalize,map } from 'rxjs/operators';
+import { HttpBackend } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,13 @@ export class AuthAdminGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot): Observable<boolean> {
     return this.check();
   }
 
-  check() {
-    return false;
+  check() :Observable<boolean> {
+    
+    return this.userService.getUser().pipe(map(data => data.nivel_acesso == 2));
+    
   }
 }

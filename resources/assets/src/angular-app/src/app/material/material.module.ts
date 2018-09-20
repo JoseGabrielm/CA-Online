@@ -15,7 +15,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -34,8 +35,8 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatTableModule,
 
   ],
   exports: [
@@ -53,7 +54,8 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
 
   ]
 })

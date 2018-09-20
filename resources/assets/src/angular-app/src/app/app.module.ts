@@ -26,6 +26,10 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
 import { DashboardApplicatorComponent } from './dashboard/dashboard-applicator/dashboard-applicator.component';
+import { DashboardUserComponent } from './dashboard/dashboard-user/dashboard-user.component';
+import { MinhaCarterinhaComponent } from './dashboard/dashboard-user/minha-carterinha/minha-carterinha.component';
+import { HistoricoComponent } from './dashboard/dashboard-user/historico/historico.component';
+import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +45,10 @@ import { DashboardApplicatorComponent } from './dashboard/dashboard-applicator/d
     DashboardComponent,
     DashboardAdminComponent,
     DashboardApplicatorComponent,
+    DashboardUserComponent,
+    MinhaCarterinhaComponent,
+    HistoricoComponent,
+    DadosComponent,
 ],
   imports: [
     BrowserModule,

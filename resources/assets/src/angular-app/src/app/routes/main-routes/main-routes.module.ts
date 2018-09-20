@@ -12,28 +12,49 @@ import { DashboardApplicatorComponent } from '../../dashboard/dashboard-applicat
 import { AuthApplicatorGuard } from '../../auth/auth-applicator.guard';
 import { AuthAdminGuard } from '../../auth/auth-admin.guard';
 import { DashboardAdminComponent } from '../../dashboard/dashboard-admin/dashboard-admin.component';
+import { GuestGuard } from '../../auth/guest.guard';
+import { DashboardUserComponent } from '../../dashboard/dashboard-user/dashboard-user.component';
+import { MinhaCarterinhaComponent } from '../../dashboard/dashboard-user/minha-carterinha/minha-carterinha.component';
+import { DadosComponent } from '../../dashboard/dashboard-user/dados/dados.component';
+import { HistoricoComponent } from '../../dashboard/dashboard-user/historico/historico.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate:[GuestGuard] },
   { path: 'teste', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'register', component: RegisterComponent, canActivate:[GuestGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   {
     path: 'dashboard', component: DashboardComponent,
+    
     canActivate: [AuthGuard],
+    children:
+    [
+      {
+        path: 'user', component: DashboardUserComponent,
+        children:
+        [
+          {path: 'minha-carterinha', component: MinhaCarterinhaComponent},
+          {path: 'dados', component: DadosComponent},
+          {path: 'historico', component:HistoricoComponent}
+
+        ]
+
+      },
+      {
+        path: 'applicator', component: DashboardApplicatorComponent,
+        canActivate: [AuthApplicatorGuard],
+      },
+      {
+        path: 'admin', component: DashboardAdminComponent,
+        canActivate: [AuthAdminGuard],
+      }
+    ]
   },
-  {
-    path: 'dashboard-applicator', component: DashboardApplicatorComponent,
-    canActivate: [AuthGuard,AuthApplicatorGuard],
-  },
-  {
-    path: 'dashboard-admin', component: DashboardAdminComponent,
-    canActivate: [AuthGuard,AuthAdminGuard],
-  },
-  { path: '', component: HomeComponent },
+
+  { path: 'home', component: HomeComponent },
 
   { path: '**', component: PageNotFoundComponent },
-  { path: '', redirectTo: '/', pathMatch: 'full' }
+  { path: '', component:HomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

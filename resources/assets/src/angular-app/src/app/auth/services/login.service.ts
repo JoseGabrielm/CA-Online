@@ -33,6 +33,7 @@ export class LoginService {
 
     if (token) { //essa atribuição é feita para atualizar a variavel e o resto do sistema ser notificado
       this._loggedIn.next(true);
+    
     } else {
       this._loggedIn.next(false);
     }

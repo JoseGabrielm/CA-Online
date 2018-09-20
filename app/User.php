@@ -45,4 +45,10 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
     
+
+
+    public function historico()
+    {
+        return $this->hasMany('VacinaOnline\Historico','id_registro');
+    }
 }
