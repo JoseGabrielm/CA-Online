@@ -19,7 +19,7 @@ Route::prefix('api')->group(function () {
     Route::post('register','APIRegisterController@register');
 });
 */
-Route::get('/{any}', function ($any) {
+Route::get('/{any}',function() {
     return view('index');
 
     // any other url, subfolders also

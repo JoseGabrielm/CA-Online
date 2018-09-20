@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoricoService, historicoIn } from '../historico.service';
+import { HistoricoService, historicoIn } from '../services/historico.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class HistoricoComponent implements OnInit {
 
   constructor(private hService:HistoricoService) { }
   historicoData : Observable<historicoIn>;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['vacina', 'aplicador', 'posto', 'created_at'];
 
   ngOnInit() {
     this.historicoData=this.hService.get();

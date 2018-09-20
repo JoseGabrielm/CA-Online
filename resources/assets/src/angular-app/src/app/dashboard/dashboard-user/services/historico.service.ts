@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_BASE_URL } from '../../api/api.module';
-
+import { API_BASE_URL } from '../../../api/api.module';
+import {PostoIn} from '../../../api/services/posto.service'
+import {VacinaIn} from '../../../api/services/vacina.service'
+import {AplicadorIn} from '../../../api/services/aplicador.service'
 export interface historicoIn{
-  id_vacina ,
-  id_registro ,
-   id_aplicador ,
+   aplicador:AplicadorIn,
+   vacina:VacinaIn,
    created_at  ,
    updated_at  
 }

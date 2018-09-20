@@ -247,7 +247,7 @@ var UserService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fill-remaining-space {\n   /*This fills the remaining space, by using flexbox.  \n  Every toolbar row uses a flexbox row layout. */\n  flex: 1 1 auto;\n}\n\n.nav{\n    color:white;\n    \n    /* background-color: rgba(0, 128, 0, 0.753); */\n    background-color: #00d1b2;\n    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);\n    height: auto;\n    text-transform: uppercase;\n    font-size: 18px;\n    letter-spacing: .3px;\n}\n\n.active{\n  /* /  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12); */\n   padding:1em;\n    background-color:rgba(0, 0, 0, 0.473);\n    border-bottom: 0.1em solid black;\n}\n\n.footer{\n\n\n    background-color:#00d1b2bb;\n}\n"
+module.exports = ".fill-remaining-space {\r\n   /*This fills the remaining space, by using flexbox.  \r\n  Every toolbar row uses a flexbox row layout. */\r\n  flex: 1 1 auto;\r\n}\r\n\r\n.nav{\r\n    color:white;\r\n    \r\n    /* background-color: rgba(0, 128, 0, 0.753); */\r\n    background-color: #00d1b2;\r\n    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);\r\n    height: auto;\r\n    text-transform: uppercase;\r\n    font-size: 18px;\r\n    letter-spacing: .3px;\r\n}\r\n\r\n.active{\r\n  /* /  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12); */\r\n   padding:1em;\r\n    background-color:rgba(0, 0, 0, 0.473);\r\n    border-bottom: 0.1em solid black;\r\n}\r\n\r\n.footer{\r\n\r\n\r\n    background-color:#00d1b2bb;\r\n}\r\n"
 
 /***/ }),
 
@@ -258,7 +258,7 @@ module.exports = ".fill-remaining-space {\n   /*This fills the remaining space, 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar class='nav' color=\"primary\">\n    <div >\n\n        <button  routerLinkActive=\"active\"  mat-button routerLink=\"/home\" style=\"margin-top:5px\">\n            <!-- <mat-icon>home</mat-icon>  -->\n            <img width=\"60px\" height=\"60px\" src='imagens/logo.png'>\n            <h3> \n                {{title}}\n            </h3>\n        </button>\n    </div>\n\n    <span class=\"fill-remaining-space\"></span>\n\n    <div fxLayout=\"row\" fxHide fxShow.gt-sm>\n        <div *ngIf=\"loginService.loggedIn|async ; else loggedOut\" >\n            <button mat-button routerLink=\"/logout\"> Sair </button>\n            <button mat-button routerLink=\"/dashboard\"> Dashboard </button>\n\n        </div>\n        <ng-template #loggedOut>\n                <button  routerLinkActive=\"active\" mat-button routerLink=\"/login\"> Login </button>\n            \n                <button  routerLinkActive=\"active\" mat-button routerLink=\"/register\"> Registrar </button>             \n        </ng-template>\n\n    </div>     \n  \n<!-- \n        <button mat-button routerLink=\"/login\">Entrar</button>\n  \n        <button mat-button routerLink=\"/dashboard\">Dashboard</button> -->\n    <button mat-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\n     <mat-icon>menu</mat-icon>\n    </button>\n\n</mat-toolbar>\n<mat-menu x-position=\"before\" #menu>\n    <!-- <button mat-menu-item routerLink=\"/login\">Entrar</button>\n    <button mat-menu-item routerLink=\"/dashboard\">Dashboard</button> -->\n\n</mat-menu>\n\n<router-outlet>\n    \n</router-outlet>\n<ngx-loading-bar></ngx-loading-bar>\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n<mat-toolbar class='footer' color=\"primary\"></mat-toolbar>"
+module.exports = "\r\n<mat-toolbar class='nav' color=\"primary\">\r\n    <div >\r\n\r\n        <button  routerLinkActive=\"active\"  mat-button routerLink=\"/home\" style=\"margin-top:5px\">\r\n            <!-- <mat-icon>home</mat-icon>  -->\r\n            <img width=\"60px\" height=\"60px\" src='imagens/logo.png'>\r\n            <h3> \r\n                {{title}}\r\n            </h3>\r\n        </button>\r\n    </div>\r\n\r\n    <span class=\"fill-remaining-space\"></span>\r\n\r\n    <div fxLayout=\"row\" fxHide fxShow.gt-sm>\r\n        <div *ngIf=\"loginService.loggedIn|async ; else loggedOut\" >\r\n            <button mat-button routerLink=\"/logout\"> Sair </button>\r\n            <button mat-button routerLink=\"/dashboard\"> Dashboard </button>\r\n\r\n        </div>\r\n        <ng-template #loggedOut>\r\n                <button  routerLinkActive=\"active\" mat-button routerLink=\"/login\"> Login </button>\r\n            \r\n                <button  routerLinkActive=\"active\" mat-button routerLink=\"/register\"> Registrar </button>             \r\n        </ng-template>\r\n\r\n    </div>     \r\n  \r\n<!-- \r\n        <button mat-button routerLink=\"/login\">Entrar</button>\r\n  \r\n        <button mat-button routerLink=\"/dashboard\">Dashboard</button> -->\r\n    <button mat-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\r\n     <mat-icon>menu</mat-icon>\r\n    </button>\r\n\r\n</mat-toolbar>\r\n<mat-menu x-position=\"before\" #menu>\r\n    <!-- <button mat-menu-item routerLink=\"/login\">Entrar</button>\r\n    <button mat-menu-item routerLink=\"/dashboard\">Dashboard</button> -->\r\n\r\n</mat-menu>\r\n\r\n<router-outlet>\r\n    \r\n</router-outlet>\r\n<ngx-loading-bar></ngx-loading-bar>\r\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\r\n<mat-toolbar class='footer' color=\"primary\"></mat-toolbar>"
 
 /***/ }),
 
@@ -635,7 +635,7 @@ var GuestGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n.login-form{\n    display: flex;\n    flex-direction: column;\n\n}\n.login-full-width{\n\n    width: 100%;\n}\n.login-content-lg{\n    margin: 20px;\n\n    margin-right: 400px;\n    margin-left: 400px;\n\n}"
+module.exports = "\r\n.login-form{\r\n    display: flex;\r\n    flex-direction: column;\r\n\r\n}\r\n.login-full-width{\r\n\r\n    width: 100%;\r\n}\r\n.login-content-lg{\r\n    margin: 20px;\r\n\r\n    margin-right: 400px;\r\n    margin-left: 400px;\r\n\r\n}"
 
 /***/ }),
 
@@ -646,7 +646,7 @@ module.exports = "\n.login-form{\n    display: flex;\n    flex-direction: column
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n    <app-e-header-title>Entrar</app-e-header-title>\n</app-e-header>\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\n\n\n    <div >\n        <mat-card>\n            <mat-error *ngIf=\"formSubmitError.length > 0\">\n                {{formSubmitError}}\n            </mat-error>\n            <mat-card-title></mat-card-title>\n            <mat-card-subtitle>Preencha as lacunas abaixo para acessar sua carteira online de vacinação</mat-card-subtitle>\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginForm\" #formDir=\"ngForm\">\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\n                        Please enter a valid email address\n                    </mat-error>\n                    <mat-error *ngIf=\"email.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                    <mat-hint>Errors appear instantly!</mat-hint>\n                    <mat-error *ngIf=\"password.hasError('email') && !password.hasError('required')\">\n                        Please enter a valid password address\n                    </mat-error>\n                    <mat-error *ngIf=\"password.hasError('required')\">\n                        Password is <strong>required</strong>\n                    </mat-error>\n                </mat-form-field>\n\n                <mat-grid-list cols=\"3\">\n                    <mat-grid-tile>\n\n                        <button [disabled]=\"loginForm.invalid\" type='submit' mat-raised-button color=\"primary\">Entrar</button>\n                    </mat-grid-tile>\n                    <mat-grid-tile>\n                        <button routerLink='/home' mat-raised-button color=\"accent\">Esqueci Minha senha</button>\n                    </mat-grid-tile>\n\n                </mat-grid-list>\n\n            </form>\n        </mat-card>\n    </div>\n</mat-sidenav-container>"
+module.exports = "<app-e-header>\r\n    <app-e-header-title>Entrar</app-e-header-title>\r\n</app-e-header>\r\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\r\n\r\n\r\n    <div >\r\n        <mat-card>\r\n            <mat-error *ngIf=\"formSubmitError.length > 0\">\r\n                {{formSubmitError}}\r\n            </mat-error>\r\n            <mat-card-title></mat-card-title>\r\n            <mat-card-subtitle>Preencha as lacunas abaixo para acessar sua carteira online de vacinação</mat-card-subtitle>\r\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginForm\" #formDir=\"ngForm\">\r\n                <mat-form-field class=\"login-full-width\">\r\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\r\n                    <mat-hint>Errors appear instantly!</mat-hint>\r\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\r\n                        Please enter a valid email address\r\n                    </mat-error>\r\n                    <mat-error *ngIf=\"email.hasError('required')\">\r\n                        Email is <strong>required</strong>\r\n                    </mat-error>\r\n\r\n                </mat-form-field>\r\n\r\n\r\n                <mat-form-field class=\"login-full-width\">\r\n                    <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\r\n                    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n\r\n                    <mat-hint>Errors appear instantly!</mat-hint>\r\n                    <mat-error *ngIf=\"password.hasError('email') && !password.hasError('required')\">\r\n                        Please enter a valid password address\r\n                    </mat-error>\r\n                    <mat-error *ngIf=\"password.hasError('required')\">\r\n                        Password is <strong>required</strong>\r\n                    </mat-error>\r\n                </mat-form-field>\r\n\r\n                <mat-grid-list cols=\"3\">\r\n                    <mat-grid-tile>\r\n\r\n                        <button [disabled]=\"loginForm.invalid\" type='submit' mat-raised-button color=\"primary\">Entrar</button>\r\n                    </mat-grid-tile>\r\n                    <mat-grid-tile>\r\n                        <button routerLink='/home' mat-raised-button color=\"accent\">Esqueci Minha senha</button>\r\n                    </mat-grid-tile>\r\n\r\n                </mat-grid-list>\r\n\r\n            </form>\r\n        </mat-card>\r\n    </div>\r\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -802,7 +802,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n  <app-e-header-title>Sair</app-e-header-title>\n</app-e-header>\n<mat-sidenav-container class=\"example-container\">\n\n\n  <div [ngClass.lg]=\"'login-content-lg'\">\n      <mat-card>\n        \n          <mat-card-content>\n\n            <div *ngIf='logoutMsg.length>0'>\n                <h3> {{logoutMsg}}</h3>\n            </div>\n          </mat-card-content>\n          \n      </mat-card>\n  </div>\n"
+module.exports = "<app-e-header>\r\n  <app-e-header-title>Sair</app-e-header-title>\r\n</app-e-header>\r\n<mat-sidenav-container class=\"example-container\">\r\n\r\n\r\n  <div [ngClass.lg]=\"'login-content-lg'\">\r\n      <mat-card>\r\n        \r\n          <mat-card-content>\r\n\r\n            <div *ngIf='logoutMsg.length>0'>\r\n                <h3> {{logoutMsg}}</h3>\r\n            </div>\r\n          </mat-card-content>\r\n          \r\n      </mat-card>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -881,7 +881,7 @@ var LogoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login-form{\n    display: flex;\n    flex-direction: column;\n\n}\n.login-full-width{\n\n    width: 100%;\n}\n.login-content-lg{\n    margin: 20px;\n\n     margin-right: 400px;\n    margin-left: 400px;\n\n}"
+module.exports = ".login-form{\r\n    display: flex;\r\n    flex-direction: column;\r\n\r\n}\r\n.login-full-width{\r\n\r\n    width: 100%;\r\n}\r\n.login-content-lg{\r\n    margin: 20px;\r\n\r\n     margin-right: 400px;\r\n    margin-left: 400px;\r\n\r\n}"
 
 /***/ }),
 
@@ -892,7 +892,7 @@ module.exports = ".login-form{\n    display: flex;\n    flex-direction: column;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n    <app-e-header-title>\n        Criar conta\n    </app-e-header-title>\n\n</app-e-header>\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\n    <div >\n        <mat-card>\n            <mat-card-title></mat-card-title>\n            <mat-card-subtitle>Preencha as lacunas abaixo para criar sua carteira online de vacinação</mat-card-subtitle>\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"registerForm\" #formDir=\"ngForm\">\n            \n                <div *ngIf='errors'>\n                    <mat-error *ngFor=\"let error of errors\"> \n                            {{error}}\n                        </mat-error>\n                </div>\n     \n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Nome\" formControlName=\"name\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n           \n                    <mat-error *ngIf=\"name.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\n                        Please enter a valid email address\n                    </mat-error>\n                    <mat-error *ngIf=\"email.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <div formGroupName=\"passGroup\">\n\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"password.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                    </mat-form-field>\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Confirmar Senha\" formControlName=\"confirmPassword\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"confirmPassword.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                        <mat-error *ngIf=\"confirmPassword.hasError('MatchPassword')\">\n                            Password doesnt <strong>match</strong>\n                        </mat-error>\n                    </mat-form-field>\n                </div>\n\n                <mat-form-field>\n                    <input formControlName='data' placeholder=\"Data de nascimento\" matInput [matDatepicker]=\"myDatepicker\">\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\n                    <mat-datepicker #myDatepicker></mat-datepicker>\n                    <!-- <mat-hint>Data de nascimento!</mat-hint> -->\n\n                </mat-form-field>\n                <div>\n\n                    <mat-form-field>\n                        <mat-select  formControlName='estado' placeholder='Estado'>\n                            <mat-option *ngFor=\"let estado of estados | async\" value=\"{{estado['ID']}}\">{{estado['Nome']}}</mat-option>\n\n                        </mat-select>\n                    </mat-form-field>\n                    <mat-form-field>\n                        <mat-select formControlName='cidade' placeholder='Cidade' >\n                    \n                            <div *ngIf='currentEstadoID.length > 0'>\n\n                                <mat-option *ngFor=\"let cidade of cidades | async |  filterByState: currentEstadoID\" value=\"{{cidade['ID']}}\">{{cidade['Nome']}}</mat-option>\n                            </div>    \n\n                        </mat-select>\n                    </mat-form-field>\n                </div>\n                <mat-grid-list cols=\"4\">\n                    <mat-grid-tile>\n                        <button [disabled]=\"registerForm.invalid\" type='submit' mat-raised-button color=\"primary\">Criar</button>\n                    </mat-grid-tile>\n\n\n                </mat-grid-list>\n\n            </form>\n        </mat-card>\n    </div>\n\n</mat-sidenav-container>"
+module.exports = "<app-e-header>\r\n    <app-e-header-title>\r\n        Criar conta\r\n    </app-e-header-title>\r\n\r\n</app-e-header>\r\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\r\n    <div >\r\n        <mat-card>\r\n            <mat-card-title></mat-card-title>\r\n            <mat-card-subtitle>Preencha as lacunas abaixo para criar sua carteira online de vacinação</mat-card-subtitle>\r\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"registerForm\" #formDir=\"ngForm\">\r\n            \r\n                <div *ngIf='errors'>\r\n                    <mat-error *ngFor=\"let error of errors\"> \r\n                            {{error}}\r\n                        </mat-error>\r\n                </div>\r\n     \r\n                <mat-form-field class=\"login-full-width\">\r\n                    <input matInput placeholder=\"Nome\" formControlName=\"name\" [errorStateMatcher]=\"matcher\">\r\n                    <mat-hint>Errors appear instantly!</mat-hint>\r\n           \r\n                    <mat-error *ngIf=\"name.hasError('required')\">\r\n                        Email is <strong>required</strong>\r\n                    </mat-error>\r\n\r\n                </mat-form-field>\r\n\r\n                <mat-form-field class=\"login-full-width\">\r\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\r\n                    <mat-hint>Errors appear instantly!</mat-hint>\r\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\r\n                        Please enter a valid email address\r\n                    </mat-error>\r\n                    <mat-error *ngIf=\"email.hasError('required')\">\r\n                        Email is <strong>required</strong>\r\n                    </mat-error>\r\n\r\n                </mat-form-field>\r\n\r\n                <div formGroupName=\"passGroup\">\r\n\r\n                    <mat-form-field class=\"login-full-width\">\r\n                        <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\r\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n\r\n                        <mat-hint>Errors appear instantly!</mat-hint>\r\n\r\n                        <mat-error *ngIf=\"password.hasError('required')\">\r\n                            Password is <strong>required</strong>\r\n                        </mat-error>\r\n                    </mat-form-field>\r\n                    <mat-form-field class=\"login-full-width\">\r\n                        <input matInput placeholder=\"Confirmar Senha\" formControlName=\"confirmPassword\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\r\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n\r\n                        <mat-hint>Errors appear instantly!</mat-hint>\r\n\r\n                        <mat-error *ngIf=\"confirmPassword.hasError('required')\">\r\n                            Password is <strong>required</strong>\r\n                        </mat-error>\r\n                        <mat-error *ngIf=\"confirmPassword.hasError('MatchPassword')\">\r\n                            Password doesnt <strong>match</strong>\r\n                        </mat-error>\r\n                    </mat-form-field>\r\n                </div>\r\n\r\n                <mat-form-field>\r\n                    <input formControlName='data' placeholder=\"Data de nascimento\" matInput [matDatepicker]=\"myDatepicker\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #myDatepicker></mat-datepicker>\r\n                    <!-- <mat-hint>Data de nascimento!</mat-hint> -->\r\n\r\n                </mat-form-field>\r\n                <div>\r\n\r\n                    <mat-form-field>\r\n                        <mat-select  formControlName='estado' placeholder='Estado'>\r\n                            <mat-option *ngFor=\"let estado of estados | async\" value=\"{{estado['ID']}}\">{{estado['Nome']}}</mat-option>\r\n\r\n                        </mat-select>\r\n                    </mat-form-field>\r\n                    <mat-form-field>\r\n                        <mat-select formControlName='cidade' placeholder='Cidade' >\r\n                    \r\n                            <div *ngIf='currentEstadoID.length > 0'>\r\n\r\n                                <mat-option *ngFor=\"let cidade of cidades | async |  filterByState: currentEstadoID\" value=\"{{cidade['ID']}}\">{{cidade['Nome']}}</mat-option>\r\n                            </div>    \r\n\r\n                        </mat-select>\r\n                    </mat-form-field>\r\n                </div>\r\n                <mat-grid-list cols=\"4\">\r\n                    <mat-grid-tile>\r\n                        <button [disabled]=\"registerForm.invalid\" type='submit' mat-raised-button color=\"primary\">Criar</button>\r\n                    </mat-grid-tile>\r\n\r\n\r\n                </mat-grid-list>\r\n\r\n            </form>\r\n        </mat-card>\r\n    </div>\r\n\r\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -1177,7 +1177,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard-admin works!\n</p>\n"
+module.exports = "<p>\r\n  dashboard-admin works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1240,7 +1240,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard-applicator works!\n</p>\n"
+module.exports = "<p>\r\n  dashboard-applicator works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1303,7 +1303,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dados works!\n</p>\n"
+module.exports = "<p>\r\n  dados works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1355,7 +1355,7 @@ var DadosComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sidemenu{\n    background-color: antiquewhite;\n    height: 100%;\n}\n\n.example-container-user {\n    margin: 2em\n\n  }\n\n.example-container {\n    width: auto;\n    height: 30em;\n    margin:1em;\n  }\n"
+module.exports = ".sidemenu{\r\n    background-color: antiquewhite;\r\n    height: 100%;\r\n}\r\n\r\n.example-container-user {\r\n    margin: 2em\r\n\r\n  }\r\n\r\n.example-container {\r\n    width: auto;\r\n    height: 30em;\r\n    margin:1em;\r\n  }\r\n"
 
 /***/ }),
 
@@ -1366,7 +1366,7 @@ module.exports = ".sidemenu{\n    background-color: antiquewhite;\n    height: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-drawer-container class=\"example-container\">\n    <mat-drawer mode=\"side\" opened>\n\n        <div class='sidemenu'>\n\n            <mat-list>\n\n              <mat-list-item> \n                \n                  <button mat-raised-button routerLink=\"/dashboard/user/minha-carterinha\">Minha carterinha</button> \n                </mat-list-item>\n              <mat-list-item> \n                  <button  mat-raised-button routerLink=\"/dashboard/user/historico\">Historico </button> \n  \n              </mat-list-item>\n              <mat-list-item> \n                  <button  mat-raised-button routerLink=\"/dashboard/user/dados\">Meus dados</button> \n\n              </mat-list-item>\n            </mat-list>\n    \n          </div>\n\n    </mat-drawer>\n    \n    <mat-drawer-content>\n      <div class='example-container-user'>\n        <router-outlet></router-outlet>\n        \n      </div>\n    </mat-drawer-content>\n  </mat-drawer-container>"
+module.exports = "<mat-drawer-container class=\"example-container\">\r\n    <mat-drawer mode=\"side\" opened>\r\n\r\n        <div class='sidemenu'>\r\n\r\n            <mat-list>\r\n\r\n              <mat-list-item> \r\n                \r\n                  <button mat-raised-button routerLink=\"/dashboard/user/minha-carterinha\">Minha carterinha</button> \r\n                </mat-list-item>\r\n              <mat-list-item> \r\n                  <button  mat-raised-button routerLink=\"/dashboard/user/historico\">Historico </button> \r\n  \r\n              </mat-list-item>\r\n              <mat-list-item> \r\n                  <button  mat-raised-button routerLink=\"/dashboard/user/dados\">Meus dados</button> \r\n\r\n              </mat-list-item>\r\n            </mat-list>\r\n    \r\n          </div>\r\n\r\n    </mat-drawer>\r\n    \r\n    <mat-drawer-content>\r\n      <div class='example-container-user'>\r\n        <router-outlet></router-outlet>\r\n        \r\n      </div>\r\n    </mat-drawer-content>\r\n  </mat-drawer-container>"
 
 /***/ }),
 
@@ -1411,51 +1411,6 @@ var DashboardUserComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard-user/historico.service.ts":
-/*!***************************************************************!*\
-  !*** ./src/app/dashboard/dashboard-user/historico.service.ts ***!
-  \***************************************************************/
-/*! exports provided: HistoricoService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoService", function() { return HistoricoService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _api_api_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/api.module */ "./src/app/api/api.module.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var HistoricoService = /** @class */ (function () {
-    function HistoricoService(http) {
-        this.http = http;
-    }
-    HistoricoService.prototype.get = function () {
-        return this.http.get(_api_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'historico');
-    };
-    HistoricoService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], HistoricoService);
-    return HistoricoService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/dashboard/dashboard-user/historico/historico.component.css":
 /*!****************************************************************************!*\
   !*** ./src/app/dashboard/dashboard-user/historico/historico.component.css ***!
@@ -1474,7 +1429,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  historico works!\n\n  {{historicoData|async}}\n  <div *ngFor='let historico of historicoData|async'>\n    {{historico['id_vacina']}}\n  </div>\n\n  <table mat-table [dataSource]=\"historicoData\" class=\"mat-elevation-z8\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n  \n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> No. </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id_vacina}} </td>\n    </ng-container>\n  \n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Name </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id_registro}} </td>\n    </ng-container>\n  \n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id_aplicador}} </td>\n    </ng-container>\n  \n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.created_at}} </td>\n    </ng-container>\n  \n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>"
+module.exports = "\r\n  historico works!\r\n\r\n  {{historicoData|async}}\r\n  <div *ngFor='let historico of historicoData|async'>\r\n    {{historico['id_vacina']}}\r\n  </div>\r\n\r\n  <table mat-table [dataSource]=\"historicoData\" class=\"mat-elevation-z8\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n  \r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"vacina\">\r\n      <th mat-header-cell *matHeaderCellDef>Vacina </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.vacina.name}} </td>\r\n    </ng-container>\r\n  \r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"aplicador\">\r\n      <th mat-header-cell *matHeaderCellDef> Aplicador  </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.registro.name}} </td>\r\n    </ng-container>\r\n  \r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"posto\">\r\n      <th mat-header-cell *matHeaderCellDef> Posto </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.posto.endereco}} </td>\r\n    </ng-container>\r\n  \r\n    <!-- Symbol Column -->\r\n    <ng-container matColumnDef=\"created_at\">\r\n      <th mat-header-cell *matHeaderCellDef> Data </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.created_at}} </td>\r\n    </ng-container>\r\n  \r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>"
 
 /***/ }),
 
@@ -1489,7 +1444,7 @@ module.exports = "\n  historico works!\n\n  {{historicoData|async}}\n  <div *ngF
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoComponent", function() { return HistoricoComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _historico_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../historico.service */ "./src/app/dashboard/dashboard-user/historico.service.ts");
+/* harmony import */ var _services_historico_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/historico.service */ "./src/app/dashboard/dashboard-user/services/historico.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1504,7 +1459,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HistoricoComponent = /** @class */ (function () {
     function HistoricoComponent(hService) {
         this.hService = hService;
-        this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
+        this.displayedColumns = ['vacina', 'aplicador', 'posto', 'created_at'];
     }
     HistoricoComponent.prototype.ngOnInit = function () {
         this.historicoData = this.hService.get();
@@ -1515,7 +1470,7 @@ var HistoricoComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./historico.component.html */ "./src/app/dashboard/dashboard-user/historico/historico.component.html"),
             styles: [__webpack_require__(/*! ./historico.component.css */ "./src/app/dashboard/dashboard-user/historico/historico.component.css")]
         }),
-        __metadata("design:paramtypes", [_historico_service__WEBPACK_IMPORTED_MODULE_1__["HistoricoService"]])
+        __metadata("design:paramtypes", [_services_historico_service__WEBPACK_IMPORTED_MODULE_1__["HistoricoService"]])
     ], HistoricoComponent);
     return HistoricoComponent;
 }());
@@ -1542,7 +1497,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  minha-carterinha works!\n</p>\n"
+module.exports = "<p>\r\n  minha-carterinha works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1587,6 +1542,51 @@ var MinhaCarterinhaComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dashboard/dashboard-user/services/historico.service.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/dashboard/dashboard-user/services/historico.service.ts ***!
+  \************************************************************************/
+/*! exports provided: HistoricoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoService", function() { return HistoricoService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_api_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/api.module */ "./src/app/api/api.module.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HistoricoService = /** @class */ (function () {
+    function HistoricoService(http) {
+        this.http = http;
+    }
+    HistoricoService.prototype.get = function () {
+        return this.http.get(_api_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'historico');
+    };
+    HistoricoService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], HistoricoService);
+    return HistoricoService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dashboard/dashboard.component.css":
 /*!***************************************************!*\
   !*** ./src/app/dashboard/dashboard.component.css ***!
@@ -1594,7 +1594,7 @@ var MinhaCarterinhaComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sidemenu{\n\n}\n\n.example-container {\n    width: auto;\n    height: 30em;\n  }"
+module.exports = ".sidemenu{\r\n\r\n}\r\n\r\n.example-container {\r\n    width: auto;\r\n    height: 30em;\r\n  }"
 
 /***/ }),
 
@@ -1605,7 +1605,7 @@ module.exports = ".sidemenu{\n\n}\n\n.example-container {\n    width: auto;\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n  <app-e-header-title>\n\n    \n    <p style='color:black;margin:1em'>\n      Aqui podera ver todos os seus dados, tais comos postos frequentados, carteirinha de vacinação,etc\n    </p>\n  </app-e-header-title>\n</app-e-header>\n\n  <router-outlet></router-outlet>"
+module.exports = "<app-e-header>\r\n  <app-e-header-title>\r\n\r\n    \r\n    <p style='color:black;margin:1em'>\r\n      Aqui podera ver todos os seus dados, tais comos postos frequentados, carteirinha de vacinação,etc\r\n    </p>\r\n  </app-e-header-title>\r\n</app-e-header>\r\n\r\n  <router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -1742,7 +1742,7 @@ var EHeaderTitleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n.e-header\n{\n    /* background-color: rgba(0, 128, 0, 0.753); */\n    background-color: #00d1b2;\n    margin:1em;\n}"
+module.exports = "\r\n.e-header\r\n{\r\n    /* background-color: rgba(0, 128, 0, 0.753); */\r\n    background-color: #00d1b2;\r\n    margin:1em;\r\n}"
 
 /***/ }),
 
@@ -1753,7 +1753,7 @@ module.exports = "\n.e-header\n{\n    /* background-color: rgba(0, 128, 0, 0.753
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='e-header'>\n\n    <ng-content></ng-content>\n</div>\n"
+module.exports = "<div class='e-header'>\r\n\r\n    <ng-content></ng-content>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1805,7 +1805,7 @@ var EHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n    <app-e-header-title>\n        <div >\n            <h1>\n\n                Carteira de Vacinação Online\n            </h1>\n            <h2 style='font-size: 18px;\n                        font-weight: 300;\n                        line-height: 28px;'>\n                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!\n            </h2>\n\n\n            <button mat-raised-button routerLink='/login'> Começar a aventura!</button>\n        </div>\n\n\n\n    </app-e-header-title>\n\n\n\n</app-e-header>\n<mat-sidenav-container class=\"example-container\">\n\n    <mat-grid-list class='gtile ' [cols]=\"columnNum\"  gutterSize='2em'>\n        <mat-grid-tile>\n\n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n        </mat-grid-tile>\n\n        <mat-grid-tile>\n                <mat-card class='home-content'>\n\n                    <mat-card-content>\n\n                        \n                        \n                        \n                        Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                        Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\n                        da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar\n                        o Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação\n                        e encaminhamento dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente\n                        também não se lembra se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se\n                        imunizar novamente. Vale destacar que a campanha de febre amarela é preventiva e voltada aos moradores\n                        da zona norte de São Paulo. A ação começou no dia 21 de outubro, após um macaco ser encontrado morto\n                        no Horto Florestal vítima de febre amarela. Dose única para toda a vida A vacina contra a febre amarela\n                        é a melhor forma de se prevenir da doença, e uma única dose é o suficiente para se proteger por toda\n                        a vida. Mas nem todos devem tomar. O imunizante não é indicado para gestantes, mulheres amamentando\n                        crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento quimioterápico,\n                        radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais de 500\n                        mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar\n                        moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente\n                        na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas\n                        de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram vacinados,\n                        segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas que\n                        precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\n                    </mat-card-content>\n                    \n                </mat-card>\n                \n            </mat-grid-tile>\n                \n                \n                <mat-grid-tile>\n            <mat-card class='home-content'>\n                <mat-card-content>\n                        \n\n\n                    Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\n                    da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o\n                    Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento\n                    dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente também não se lembra\n                    se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale\n                    destacar que a campanha de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo.\n                    A ação começou no dia 21 de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de\n                    febre amarela. Dose única para toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir\n                    da doença, e uma única dose é o suficiente para se proteger por toda a vida. Mas nem todos devem tomar.\n                    O imunizante não é indicado para gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas,\n                    como pacientes em tratamento quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores\n                    de Lúpus, por exemplo). Mais de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa\n                    da campanha, que era de vacinar moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera,\n                    foi batida. Somente na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs\n                    (Unidades Básicas de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram\n                    vacinados, segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas\n                    que precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\n                </mat-card-content>\n            </mat-card>\n        </mat-grid-tile>\n\n        <mat-grid-tile>\n            \n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n        </mat-grid-tile>\n\n    </mat-grid-list>\n\n    <mat-card class='home-content'>\n\n\n        <mat-card-title>\n            Alguma coisa\n\n\n\n            <!-- This fills the remaining space of the current row -->\n        </mat-card-title>\n        <mat-card-subtitle>\n            blblavbl\n        </mat-card-subtitle>\n        <mat-card-content>\n            <div>\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur\n                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n            </div>\n\n        </mat-card-content>\n\n    </mat-card>\n\n\n\n\n</mat-sidenav-container>"
+module.exports = "<app-e-header>\r\n    <app-e-header-title>\r\n        <div >\r\n            <h1>\r\n\r\n                Carteira de Vacinação Online\r\n            </h1>\r\n            <h2 style='font-size: 18px;\r\n                        font-weight: 300;\r\n                        line-height: 28px;'>\r\n                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!\r\n            </h2>\r\n\r\n\r\n            <button mat-raised-button routerLink='/login'> Começar a aventura!</button>\r\n        </div>\r\n\r\n\r\n\r\n    </app-e-header-title>\r\n\r\n\r\n\r\n</app-e-header>\r\n<mat-sidenav-container class=\"example-container\">\r\n\r\n    <mat-grid-list class='gtile ' [cols]=\"columnNum\"  gutterSize='2em'>\r\n        <mat-grid-tile>\r\n\r\n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\r\n        </mat-grid-tile>\r\n\r\n        <mat-grid-tile>\r\n                <mat-card class='home-content'>\r\n\r\n                    <mat-card-content>\r\n\r\n                        \r\n                        \r\n                        \r\n                        Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\r\n                        Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\r\n                        da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar\r\n                        o Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação\r\n                        e encaminhamento dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente\r\n                        também não se lembra se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se\r\n                        imunizar novamente. Vale destacar que a campanha de febre amarela é preventiva e voltada aos moradores\r\n                        da zona norte de São Paulo. A ação começou no dia 21 de outubro, após um macaco ser encontrado morto\r\n                        no Horto Florestal vítima de febre amarela. Dose única para toda a vida A vacina contra a febre amarela\r\n                        é a melhor forma de se prevenir da doença, e uma única dose é o suficiente para se proteger por toda\r\n                        a vida. Mas nem todos devem tomar. O imunizante não é indicado para gestantes, mulheres amamentando\r\n                        crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento quimioterápico,\r\n                        radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais de 500\r\n                        mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar\r\n                        moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente\r\n                        na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas\r\n                        de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram vacinados,\r\n                        segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas que\r\n                        precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\r\n                    </mat-card-content>\r\n                    \r\n                </mat-card>\r\n                \r\n            </mat-grid-tile>\r\n                \r\n                \r\n                <mat-grid-tile>\r\n            <mat-card class='home-content'>\r\n                <mat-card-content>\r\n                        \r\n\r\n\r\n                    Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\r\n                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\r\n                    da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o\r\n                    Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento\r\n                    dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente também não se lembra\r\n                    se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale\r\n                    destacar que a campanha de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo.\r\n                    A ação começou no dia 21 de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de\r\n                    febre amarela. Dose única para toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir\r\n                    da doença, e uma única dose é o suficiente para se proteger por toda a vida. Mas nem todos devem tomar.\r\n                    O imunizante não é indicado para gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas,\r\n                    como pacientes em tratamento quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores\r\n                    de Lúpus, por exemplo). Mais de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa\r\n                    da campanha, que era de vacinar moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera,\r\n                    foi batida. Somente na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs\r\n                    (Unidades Básicas de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram\r\n                    vacinados, segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas\r\n                    que precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\r\n                </mat-card-content>\r\n            </mat-card>\r\n        </mat-grid-tile>\r\n\r\n        <mat-grid-tile>\r\n            \r\n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\r\n        </mat-grid-tile>\r\n\r\n    </mat-grid-list>\r\n\r\n    <mat-card class='home-content'>\r\n\r\n\r\n        <mat-card-title>\r\n            Alguma coisa\r\n\r\n\r\n\r\n            <!-- This fills the remaining space of the current row -->\r\n        </mat-card-title>\r\n        <mat-card-subtitle>\r\n            blblavbl\r\n        </mat-card-subtitle>\r\n        <mat-card-content>\r\n            <div>\r\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur\r\n                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n            </div>\r\n\r\n        </mat-card-content>\r\n\r\n    </mat-card>\r\n\r\n\r\n\r\n\r\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -1967,7 +1967,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  page-not-found works!\n</p>\n"
+module.exports = "<p>\r\n  page-not-found works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2092,8 +2092,8 @@ var appRoutes = [
         ]
     },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
-    { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] },
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], pathMatch: 'full' }
+    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], pathMatch: 'full' },
+    { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 var MainRoutesModule = /** @class */ (function () {
     function MainRoutesModule() {
@@ -2177,7 +2177,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/CA-Online/resources/assets/src/angular-app/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! c:\Users\manager\Desktop\ca-online\resources\assets\src\angular-app\src\main.ts */"./src/main.ts");
 
 
 /***/ })

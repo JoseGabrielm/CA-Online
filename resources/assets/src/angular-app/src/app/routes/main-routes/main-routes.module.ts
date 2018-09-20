@@ -53,8 +53,8 @@ const appRoutes: Routes = [
 
   { path: 'home', component: HomeComponent },
 
-  { path: '**', component: PageNotFoundComponent },
-  { path: '', component:HomeComponent, pathMatch: 'full' }
+  { path: '', component:HomeComponent, pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
