@@ -4,7 +4,7 @@ use caonline;
 create table registros(  
     id int primary key AUTO_INCREMENT,
     name varchar(255),
-    email varchar(255),
+    email varchar(255) unique,
     password varchar(255),
     cpf varchar(255),
     nivel_acesso int default 0,
@@ -22,7 +22,8 @@ create table aplicadores(
     id_posto int, 
  	id_registro int unique,
     endereco varchar(255),
-    foreign key(id_registro) references  registros(id)
+    foreign key(id_registro) references  registros(id),
+    foreign key(id_posto) references  postos(id)
 
 );
 
@@ -30,6 +31,7 @@ create table aplicadores(
 create table postos(
     id int PRIMARY KEY AUTO_INCREMENT,
     id_cidade int,
+    id_estado int,
     endereco varchar(255)
 
 );
