@@ -4,6 +4,7 @@ import { API_BASE_URL } from '../../../api/api.module';
 import {PostoIn} from '../../../api/services/posto.service'
 import {VacinaIn} from '../../../api/services/vacina.service'
 import {AplicadorIn} from '../../../api/services/aplicador.service'
+import { Observable } from 'rxjs';
 export interface historicoIn{
    aplicador:AplicadorIn,
    vacina:VacinaIn,
@@ -18,7 +19,7 @@ export class HistoricoService {
 
   constructor(private http:HttpClient) { }
 
-  get(){
-    return this.http.get<historicoIn>(API_BASE_URL + 'historico');
+  get() {
+    return this.http.get<historicoIn[]>(API_BASE_URL + 'historico');
   }
 }

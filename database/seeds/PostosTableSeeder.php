@@ -15,7 +15,7 @@ class PostosTableSeeder extends Seeder
         DB::table('postos')->insert([
             'id_cidade' => 5,
             'id_estado' => 5,
-            'endereco' => str_random(10)
+            'endereco' => "UBS Vila Guaçu"
      
         ]);
     }

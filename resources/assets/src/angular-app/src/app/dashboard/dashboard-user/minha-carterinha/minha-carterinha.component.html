@@ -1,3 +1,32 @@
-<p>
-  minha-carterinha works!
-</p>
+<h4>
+  Carteira de vacinação
+</h4>
+<p>Encontre todas as vacinas que tomou desde o começo</p>
+<mat-divider></mat-divider>
+<div class='ca'>
+  <mat-card *ngFor='let id of keys' class='card'>
+
+   <p>
+
+     
+     {{id}}
+     
+    </p>
+
+
+
+      <div *ngIf='!dataC[id][0].id_aplicador; else ok'>
+        Sem dados
+      </div>
+      
+      <ng-template #ok >
+
+      <div *ngFor='let vacina of dataC[id]'>
+        <p>
+          Data {{vacina.created_at|date}}
+        </p>
+        </div>
+      </ng-template>
+
+  </mat-card>
+</div>

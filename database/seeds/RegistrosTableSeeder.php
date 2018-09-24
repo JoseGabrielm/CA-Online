@@ -26,7 +26,7 @@ class RegistrosTableSeeder extends Seeder
     
         
         DB::table('registros')->insert([
-            'name' => str_random(10),
+            'name' => 'Pedro Honorio',
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('secret'),
             'cpf' => str_random(10),

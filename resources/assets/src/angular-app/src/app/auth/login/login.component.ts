@@ -42,11 +42,11 @@ export class LoginComponent {
         };
         this.loginForm = new FormGroup({
 
-            'email': new FormControl('vitor@vitor.com', [
+            'email': new FormControl('user@gmail.com', [
                 Validators.required,
                 Validators.email,
             ]),
-            'password': new FormControl('123456789', [
+            'password': new FormControl('user', [
                 Validators.required
             ]),
         });
@@ -85,7 +85,7 @@ export class LoginComponent {
                         this.loginService.logout()
                         .pipe(finalize(() => {
                             localStorage.removeItem('token');
-                            
+                            console.log('tokken removed');
                             this.loginService.isLoggedIn();
                         } ));
                     }                   

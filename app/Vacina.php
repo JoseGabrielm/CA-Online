@@ -8,14 +8,11 @@ class Vacina extends Model
 {
     protected $fillable = [
 
-        'id',	'id_posto'	,'id_registro',	'endereco' ];
+       'id_posto'	,'id_registro',	'endereco','name' ];
     //
 
 
-    public function historico()
-    {
-        return $this->belongsToMany('VacinaOnline\Historico');
-    }
+
 
    
 }

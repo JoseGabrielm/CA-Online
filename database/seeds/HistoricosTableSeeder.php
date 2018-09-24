@@ -16,10 +16,11 @@ class HistoricosTableSeeder extends Seeder
         DB::table('historicos')->insert([
             'id_vacina' => 1,
             'id_registro' => 1,
-            'id_aplicador' => 2,
+            'id_aplicador' => 1,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
 
         ]);
+       
     }
 }

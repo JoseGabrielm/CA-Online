@@ -26,7 +26,7 @@ class Historico extends Model
 
     function registro(){
 
-        return $this->hasOne('VacinaOnline\Aplicador','id','id_registro');
+        return $this->hasOne('VacinaOnline\Registro','id','id_registro');
 
     }
 

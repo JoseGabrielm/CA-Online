@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CarterinhaService, carterinhaIn } from '../services/carterinha.service';
+import { Observable } from 'rxjs';
+import { MatTableDataSource, MatSort } from '@angular/material';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-minha-carterinha',
@@ -6,10 +10,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./minha-carterinha.component.css']
 })
 export class MinhaCarterinhaComponent implements OnInit {
+    dataC:any[];
+  keys:string[];
 
-  constructor() { }
+  constructor(private carterinhaS:CarterinhaService) { }
 
   ngOnInit() {
+   this.carterinhaS.get().subscribe(
+
+      data => {
+        this.dataC = data;
+        this.keys=  Object.keys(this.dataC);
+        console.log(data);
+      }
+     );
+
   }
 
+
+ 
+
+
+  
 }

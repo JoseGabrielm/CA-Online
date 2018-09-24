@@ -24,7 +24,9 @@ Route::group([
     'middleware' => 'jwt.auth'
 ], function(){
 
-    Route::get('historico','HistoricoController@getHistorico');
+    Route::get('historico','UserController@historico');
+    Route::get('vacinas','UserController@vacinas');
+    Route::get('carterinha','UserController@carterinha');
 });
 Route::middleware('jwt.auth')->get('user', function(Request $request) {
     return auth()->user();
