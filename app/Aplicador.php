@@ -21,7 +21,7 @@ class Aplicador extends Model
 
     }
     function registro(){
-        return $this->hasOne('VacinaOnline\User','id','id_registro');
+        return $this->belongsTo('VacinaOnline\User','id_registro');
 
     }
     

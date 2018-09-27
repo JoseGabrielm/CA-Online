@@ -15,7 +15,8 @@ class CreateHistoricosTable extends Migration
     {
         Schema::create('historicos', function (Blueprint $table) {
             //
- 
+            $table->increments('id');
+
             $table->timestamps();
         });
         Schema::table('historicos', function (Blueprint $table) {

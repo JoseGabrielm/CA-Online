@@ -22,17 +22,16 @@ class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterComponent implements OnInit {
   hide = true;
   registerForm: FormGroup;
-
-
   cidades: Observable<Cidade[]>;
   currentEstadoID: string ;
   estados: Observable<Estado[]>;
   matcher = new MyErrorStateMatcher();
   errors:Array<string>;
   done:Array<string>;
+  maxDate = new Date();
+
   constructor(private cityService: CityService,
     private registerService: RegisterService) { }
-
 
   ngOnInit() {
     this.currentEstadoID = '2';
@@ -54,8 +53,8 @@ export class RegisterComponent implements OnInit {
         ])
       }, [this.MatchPassword]),
       'estado': new FormControl('2', [Validators.required]),
-      'cidade': new FormControl('3', [Validators.required]),
-      'data': new FormControl('10-10-2000', [
+      'cidade': new FormControl('102', [Validators.required]),
+      'data': new FormControl(this.maxDate, [
         Validators.required
       ]),
     });
@@ -93,7 +92,9 @@ get name()  { return this.registerForm.get('name');}
       data_nascimento: this.data.value,
       id_cidade: this.cidade.value,
       id_estado: this.estado.value
-    }
+    };
+    this.done = null;
+    this.errors = null;
     this.registerService.doRegister(registerParams).subscribe(
       res => { 
         this.done=Object.values( res);

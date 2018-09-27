@@ -16,7 +16,9 @@ class APILoginController extends Controller
         
         $this->middleware('jwt.auth', ['except' => ['login']]);
     }
-
+    public function refresh(){
+        
+    }
     public function logout(){
         try{
             JWTAuth::invalidate(JWTAuth::getToken());

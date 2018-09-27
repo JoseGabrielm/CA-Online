@@ -1,8 +1,21 @@
-.sidemenu{
-
-}
 
 .example-container {
     width: auto;
     height: 30em;
+  }
+
+  .sidemenu{
+    background-color: antiquewhite;
+    height: 100%;
+}
+
+.example-container-user {
+    margin: 2em
+
+  }
+
+  .example-container {
+    width: auto;
+    height: 30em;
+    margin:1em;
   }

@@ -47,6 +47,7 @@ create table vacinas(
 );
 
 create table historicos(
+    id int,
     id_vacina int,
  	id_registro int,
     id_aplicador int,

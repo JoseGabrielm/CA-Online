@@ -195,6 +195,54 @@ var InterceptorModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/api/services/historicos.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/api/services/historicos.service.ts ***!
+  \****************************************************/
+/*! exports provided: HistoricosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricosService", function() { return HistoricosService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api.module */ "./src/app/api/api.module.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HistoricosService = /** @class */ (function () {
+    function HistoricosService(http) {
+        this.http = http;
+    }
+    HistoricosService.prototype.get = function () {
+        return this.http.get(_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'historico');
+    };
+    HistoricosService.prototype.put = function (historico) {
+        return this.http.post(_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'applicator/historico', historico);
+    };
+    HistoricosService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], HistoricosService);
+    return HistoricosService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/api/services/user.service.ts":
 /*!**********************************************!*\
   !*** ./src/app/api/services/user.service.ts ***!
@@ -345,12 +393,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_dashboard_user_minha_carterinha_minha_carterinha_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/dashboard-user/minha-carterinha/minha-carterinha.component */ "./src/app/dashboard/dashboard-user/minha-carterinha/minha-carterinha.component.ts");
 /* harmony import */ var _dashboard_dashboard_user_historico_historico_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/dashboard-user/historico/historico.component */ "./src/app/dashboard/dashboard-user/historico/historico.component.ts");
 /* harmony import */ var _dashboard_dashboard_user_dados_dados_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/dashboard-user/dados/dados.component */ "./src/app/dashboard/dashboard-user/dados/dados.component.ts");
+/* harmony import */ var _auth_session_end_session_end_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth/session-end/session-end.component */ "./src/app/auth/session-end/session-end.component.ts");
+/* harmony import */ var _dashboard_dashboard_applicator_vacina_apply_vacina_apply_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/dashboard-applicator/vacina-apply/vacina-apply.component */ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -400,6 +452,8 @@ var AppModule = /** @class */ (function () {
                 _dashboard_dashboard_user_minha_carterinha_minha_carterinha_component__WEBPACK_IMPORTED_MODULE_24__["MinhaCarterinhaComponent"],
                 _dashboard_dashboard_user_historico_historico_component__WEBPACK_IMPORTED_MODULE_25__["HistoricoComponent"],
                 _dashboard_dashboard_user_dados_dados_component__WEBPACK_IMPORTED_MODULE_26__["DadosComponent"],
+                _auth_session_end_session_end_component__WEBPACK_IMPORTED_MODULE_27__["SessionEndComponent"],
+                _dashboard_dashboard_applicator_vacina_apply_vacina_apply_component__WEBPACK_IMPORTED_MODULE_28__["VacinaApplyComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -666,7 +720,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_ui_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-ui-loader */ "./node_modules/ngx-ui-loader/fesm5/ngx-ui-loader.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -680,7 +733,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
  // Import NgxUiLoaderService
-
 
 
 var MyErrorStateMatcher = /** @class */ (function () {
@@ -745,14 +797,16 @@ var LoginComponent = /** @class */ (function () {
             console.log(data);
             localStorage.setItem('token', data['token']);
             _this.service.isLoggedIn();
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(0, 1000 * 60).subscribe(function () {
-                var _this = this;
-                this.loginService.logout()
-                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["finalize"])(function () {
+            // 1 hour
+            _this.logSub = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["timer"])(1000 * 60 * 60).subscribe(function (data) {
+                _this.service.logout()
+                    .subscribe(function (x) {
+                    // console.log('tokken removed');
                     localStorage.removeItem('token');
-                    console.log('tokken removed');
-                    _this.loginService.isLoggedIn();
-                }));
+                    _this.service.isLoggedIn();
+                    _this.logSub.unsubscribe();
+                    _this.router.navigate(['/session-end']);
+                });
             });
             _this.router.navigate(['/dashboard']);
         }, function (error) {
@@ -893,7 +947,7 @@ module.exports = ".login-form{\n    display: flex;\n    flex-direction: column;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n    <app-e-header-title>\n        Criar conta\n    </app-e-header-title>\n\n</app-e-header>\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\n    <div >\n        <mat-card>\n            <mat-card-title></mat-card-title>\n            <mat-card-subtitle>Preencha as lacunas abaixo para criar sua carteira online de vacinação</mat-card-subtitle>\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"registerForm\" #formDir=\"ngForm\">\n            \n                <div *ngIf='errors'>\n                    <mat-error *ngFor=\"let error of errors\"> \n                            {{error}}\n                        </mat-error>\n                </div>\n     \n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Nome\" formControlName=\"name\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n           \n                    <mat-error *ngIf=\"name.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\n                        Please enter a valid email address\n                    </mat-error>\n                    <mat-error *ngIf=\"email.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <div formGroupName=\"passGroup\">\n\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"password.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                    </mat-form-field>\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Confirmar Senha\" formControlName=\"confirmPassword\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"confirmPassword.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                        <mat-error *ngIf=\"confirmPassword.hasError('MatchPassword')\">\n                            Password doesnt <strong>match</strong>\n                        </mat-error>\n                    </mat-form-field>\n                </div>\n\n                <mat-form-field>\n                    <input formControlName='data' placeholder=\"Data de nascimento\" matInput [matDatepicker]=\"myDatepicker\">\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\n                    <mat-datepicker #myDatepicker></mat-datepicker>\n                    <!-- <mat-hint>Data de nascimento!</mat-hint> -->\n\n                </mat-form-field>\n                <div>\n\n                    <mat-form-field>\n                        <mat-select  formControlName='estado' placeholder='Estado'>\n                            <mat-option *ngFor=\"let estado of estados | async\" value=\"{{estado['ID']}}\">{{estado['Nome']}}</mat-option>\n\n                        </mat-select>\n                    </mat-form-field>\n                    <mat-form-field>\n                        <mat-select formControlName='cidade' placeholder='Cidade' >\n                    \n                            <div *ngIf='currentEstadoID.length > 0'>\n\n                                <mat-option *ngFor=\"let cidade of cidades | async |  filterByState: currentEstadoID\" value=\"{{cidade['ID']}}\">{{cidade['Nome']}}</mat-option>\n                            </div>    \n\n                        </mat-select>\n                    </mat-form-field>\n                </div>\n                <mat-grid-list cols=\"4\">\n                    <mat-grid-tile>\n                        <button [disabled]=\"registerForm.invalid\" type='submit' mat-raised-button color=\"primary\">Criar</button>\n                    </mat-grid-tile>\n\n\n                </mat-grid-list>\n\n            </form>\n        </mat-card>\n    </div>\n\n</mat-sidenav-container>"
+module.exports = "<app-e-header>\n    <app-e-header-title>\n        Criar conta\n    </app-e-header-title>\n\n</app-e-header>\n<mat-sidenav-container  [ngClass.lg]=\"'login-content-lg'\" class=\"example-container\">\n    <div >\n        <mat-card>\n            <mat-card-title></mat-card-title>\n            <mat-card-subtitle>Preencha as lacunas abaixo para criar sua carteira online de vacinação</mat-card-subtitle>\n            <form class=\"login-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"registerForm\" #formDir=\"ngForm\">\n            \n                <div *ngIf='errors '>\n                    <mat-error *ngFor=\"let error of errors\"> \n                            {{error}}\n                        </mat-error>\n                </div>\n                <div *ngIf='done' style='color:green'>\n\n                    Conta criada com sucesso\n                </div>\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Nome\" formControlName=\"name\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n           \n                    <mat-error *ngIf=\"name.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <mat-form-field class=\"login-full-width\">\n                    <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\n                    <mat-hint>Errors appear instantly!</mat-hint>\n                    <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\n                        Please enter a valid email address\n                    </mat-error>\n                    <mat-error *ngIf=\"email.hasError('required')\">\n                        Email is <strong>required</strong>\n                    </mat-error>\n\n                </mat-form-field>\n\n                <div formGroupName=\"passGroup\">\n\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Senha\" formControlName=\"password\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"password.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                    </mat-form-field>\n                    <mat-form-field class=\"login-full-width\">\n                        <input matInput placeholder=\"Confirmar Senha\" formControlName=\"confirmPassword\" [errorStateMatcher]=\"matcher\" [type]=\"hide ? 'password' : 'text'\">\n                        <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n\n                        <mat-hint>Errors appear instantly!</mat-hint>\n\n                        <mat-error *ngIf=\"confirmPassword.hasError('required')\">\n                            Password is <strong>required</strong>\n                        </mat-error>\n                        <mat-error *ngIf=\"confirmPassword.hasError('MatchPassword')\">\n                            Password doesnt <strong>match</strong>\n                        </mat-error>\n                    </mat-form-field>\n                </div>\n\n                <mat-form-field>\n                    <input [max]=\"maxDate\" formControlName='data' placeholder=\"Data de nascimento\" matInput [matDatepicker]=\"myDatepicker\">\n                    <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\n                    <mat-datepicker #myDatepicker></mat-datepicker>\n                    <!-- <mat-hint>Data de nascimento!</mat-hint> -->\n\n                </mat-form-field>\n                <div>\n\n                    <mat-form-field>\n                        <mat-select  formControlName='estado' placeholder='Estado'>\n                            <mat-option *ngFor=\"let estado of estados | async\" value=\"{{estado['ID']}}\">{{estado['Nome']}}</mat-option>\n\n                        </mat-select>\n                    </mat-form-field>\n                    <mat-form-field>\n                        <mat-select formControlName='cidade' placeholder='Cidade' >\n                    \n                            <div *ngIf='currentEstadoID.length > 0'>\n\n                                <mat-option *ngFor=\"let cidade of cidades | async |  filterByState: currentEstadoID\" value=\"{{cidade['ID']}}\">{{cidade['Nome']}}</mat-option>\n                            </div>    \n\n                        </mat-select>\n                    </mat-form-field>\n                </div>\n                <mat-grid-list cols=\"4\">\n                    <mat-grid-tile>\n                        <button [disabled]=\"registerForm.invalid\" type='submit' mat-raised-button color=\"primary\">Criar</button>\n                    </mat-grid-tile>\n\n\n                </mat-grid-list>\n\n            </form>\n        </mat-card>\n    </div>\n\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -939,6 +993,7 @@ var RegisterComponent = /** @class */ (function () {
         this.registerService = registerService;
         this.hide = true;
         this.matcher = new MyErrorStateMatcher();
+        this.maxDate = new Date();
     }
     RegisterComponent.prototype.ngOnInit = function () {
         this.currentEstadoID = '2';
@@ -959,8 +1014,8 @@ var RegisterComponent = /** @class */ (function () {
                 ])
             }, [this.MatchPassword]),
             'estado': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('2', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            'cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('3', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            'data': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('10-10-2000', [
+            'cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('102', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            'data': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.maxDate, [
                 _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
             ]),
         });
@@ -1021,6 +1076,8 @@ var RegisterComponent = /** @class */ (function () {
             id_cidade: this.cidade.value,
             id_estado: this.estado.value
         };
+        this.done = null;
+        this.errors = null;
         this.registerService.doRegister(registerParams).subscribe(function (res) {
             _this.done = Object.values(res);
         }, function (errors) {
@@ -1160,6 +1217,69 @@ var RegisterService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/auth/session-end/session-end.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/auth/session-end/session-end.component.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/auth/session-end/session-end.component.html":
+/*!*************************************************************!*\
+  !*** ./src/app/auth/session-end/session-end.component.html ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-e-header>\n  <app-e-header-title>\n      Sessão finalizada\n  </app-e-header-title>\n\n</app-e-header>\n<p>\n  A sessão terminou, para continuar navegando identifique-se novamente\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/auth/session-end/session-end.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/auth/session-end/session-end.component.ts ***!
+  \***********************************************************/
+/*! exports provided: SessionEndComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionEndComponent", function() { return SessionEndComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SessionEndComponent = /** @class */ (function () {
+    function SessionEndComponent() {
+    }
+    SessionEndComponent.prototype.ngOnInit = function () {
+    };
+    SessionEndComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-session-end',
+            template: __webpack_require__(/*! ./session-end.component.html */ "./src/app/auth/session-end/session-end.component.html"),
+            styles: [__webpack_require__(/*! ./session-end.component.css */ "./src/app/auth/session-end/session-end.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SessionEndComponent);
+    return SessionEndComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dashboard/dashboard-admin/dashboard-admin.component.css":
 /*!*************************************************************************!*\
   !*** ./src/app/dashboard/dashboard-admin/dashboard-admin.component.css ***!
@@ -1230,7 +1350,7 @@ var DashboardAdminComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".sidemenu{\n    background-color: antiquewhite;\n    height: 100%;\n}\n\n.example-container-user {\n    margin: 2em\n\n  }\n\n.example-container {\n    width: auto;\n    height: 30em;\n    margin:1em;\n  }\n"
 
 /***/ }),
 
@@ -1241,7 +1361,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard-applicator works!\n</p>\n"
+module.exports = "<mat-drawer-container class=\"example-container\">\n  <mat-drawer mode=\"side\" opened>\n\n      <div class='sidemenu'>\n\n          <mat-list>\n\n            <mat-list-item> \n              \n                <button mat-raised-button routerLink=\"/dashboard/applicator/aplicar\">Aplicar</button> \n              </mat-list-item>\n          </mat-list>\n  \n        </div>\n\n  </mat-drawer>\n  \n  <mat-drawer-content>\n    <div class='example-container-user'>\n      <router-outlet></router-outlet>\n      \n    </div>\n  </mat-drawer-content>\n</mat-drawer-container>"
 
 /***/ }),
 
@@ -1286,6 +1406,183 @@ var DashboardApplicatorComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dashboard/dashboard-applicator/services/vacina-apply.service.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/dashboard/dashboard-applicator/services/vacina-apply.service.ts ***!
+  \*********************************************************************************/
+/*! exports provided: VacinaApplyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VacinaApplyService", function() { return VacinaApplyService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_api_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/api.module */ "./src/app/api/api.module.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var VacinaApplyService = /** @class */ (function () {
+    function VacinaApplyService(http) {
+        this.http = http;
+    }
+    VacinaApplyService.prototype.getVacinas = function () {
+        return this.http.get(_api_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'applicator/' + 'vacinas');
+    };
+    VacinaApplyService.prototype.getUserByEmail = function (email) {
+        return this.http.get(_api_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'applicator/' + 'user/' + email);
+    };
+    VacinaApplyService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], VacinaApplyService);
+    return VacinaApplyService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.css":
+/*!****************************************************************************************!*\
+  !*** ./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.css ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.html":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.html ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-horizontal-stepper linear #stepper>\n\n  <mat-step [stepControl]=\"firstFormGroup\">\n    <form [formGroup]=\"firstFormGroup\"  (ngSubmit)=\"onSubmit_CheckEmail()\" >\n        <mat-error *ngIf=\"firstFormGroup.hasError('not_found')\">\n            Email não encontrado\n        </mat-error>\n      <ng-template matStepLabel>Digite o email do cidadão</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Email\" formControlName=\"email\" required>\n      </mat-form-field>\n          <mat-error *ngIf=\"email.hasError('email')\">\n            Digite um email valido\n        </mat-error>\n  \n      <div>\n        <button type='submit' mat-button>Proximo</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\">\n    <form [formGroup]=\"secondFormGroup\" >\n\n      <ng-template matStepLabel>Selecione a vacina a ser aplicada</ng-template>\n      <mat-form-field>\n        <!-- <input matInput placeholder=\"Vacina: \" formControlName=\"vacina\" required> -->\n        <mat-select  placeholder=\"Vacina: \" formControlName=\"vacina\" required> \n\n          <mat-option *ngFor=\"let vacina of vacinas | async\" value=\"{{vacina.id}}\">{{vacina.name}}</mat-option>\n        </mat-select>\n\n      </mat-form-field>\n      <mat-error *ngIf=\"vacina.hasError('required')\">\n      Selecione uma vacina\n    </mat-error>\n      <div>\n        <button mat-button matStepperPrevious>Voltar</button>\n        <button mat-button matStepperNext>Proximo</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button (click)='onSubmit()'>Aplicar</button>\n      <button mat-button  matStepperPrevious>Voltar</button>\n      <button mat-button (click)=\"stepper.reset()\">Recomeçar</button>\n    </div>\n  </mat-step>\n</mat-horizontal-stepper>"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.ts ***!
+  \***************************************************************************************/
+/*! exports provided: VacinaApplyComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VacinaApplyComponent", function() { return VacinaApplyComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_vacina_apply_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/vacina-apply.service */ "./src/app/dashboard/dashboard-applicator/services/vacina-apply.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _api_services_historicos_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../api/services/historicos.service */ "./src/app/api/services/historicos.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var VacinaApplyComponent = /** @class */ (function () {
+    function VacinaApplyComponent(_formBuilder, applyService, historicoService) {
+        this._formBuilder = _formBuilder;
+        this.applyService = applyService;
+        this.historicoService = historicoService;
+    }
+    Object.defineProperty(VacinaApplyComponent.prototype, "email", {
+        get: function () {
+            return this.firstFormGroup.get('email');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VacinaApplyComponent.prototype, "vacina", {
+        get: function () {
+            return this.secondFormGroup.get('vacina');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    VacinaApplyComponent.prototype.ngOnInit = function () {
+        this.firstFormGroup = this._formBuilder.group({
+            email: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]
+        });
+        this.secondFormGroup = this._formBuilder.group({
+            vacina: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
+        });
+        this.vacinas = this.applyService.getVacinas();
+        /*
+        this.applyService.getVacinas().subscribe(
+          data =>{
+            this.vacinas = data;
+            console.log(this.vacinas);
+          });*/
+    };
+    VacinaApplyComponent.prototype.onSubmit = function () {
+        var historico = {
+            id_vacina: this.vacina.value,
+            id_registro: this.user.id,
+        };
+        this.historicoService.put(historico).subscribe(function (data) {
+            console.log(data);
+        }, function (errors) {
+            console.error(errors);
+        });
+    };
+    VacinaApplyComponent.prototype.onSubmit_CheckEmail = function () {
+        var _this = this;
+        this.applyService.getUserByEmail(this.email.value).subscribe(function (data) {
+            _this.user = data;
+            _this.stepper.next();
+        }, function (errors) {
+            _this.firstFormGroup.setErrors({
+                'not_found': true
+            });
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('stepper'),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatStepper"])
+    ], VacinaApplyComponent.prototype, "stepper", void 0);
+    VacinaApplyComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-vacina-apply',
+            template: __webpack_require__(/*! ./vacina-apply.component.html */ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.html"),
+            styles: [__webpack_require__(/*! ./vacina-apply.component.css */ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_vacina_apply_service__WEBPACK_IMPORTED_MODULE_2__["VacinaApplyService"],
+            _api_services_historicos_service__WEBPACK_IMPORTED_MODULE_4__["HistoricosService"]])
+    ], VacinaApplyComponent);
+    return VacinaApplyComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dashboard/dashboard-user/dados/dados.component.css":
 /*!********************************************************************!*\
   !*** ./src/app/dashboard/dashboard-user/dados/dados.component.css ***!
@@ -1293,7 +1590,7 @@ var DashboardApplicatorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".login-full-width{\n    width: 100%;\n}"
 
 /***/ }),
 
@@ -1304,7 +1601,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dados works!\n</p>\n"
+module.exports = "<h4>\n  Meu dados\n</h4>\n<p></p>\n<form class=\"dados-form\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"dadosForm\" #formDir=\"ngForm\">\n            \n    <div *ngIf='errors '>\n        <mat-error *ngFor=\"let error of errors\"> \n                {{error}}\n            </mat-error>\n    </div>\n    <div *ngIf='done' style='color:green'>\n      Os dados foram salvos!\n    </div>\n    <mat-form-field class=\"login-full-width\">\n        <input matInput placeholder=\"Nome\" formControlName=\"name\" [errorStateMatcher]=\"matcher\">\n        <mat-hint>Errors appear instantly!</mat-hint>\n\n        <mat-error *ngIf=\"name.hasError('required')\">\n            Email is <strong>required</strong>\n        </mat-error>\n\n    </mat-form-field>\n\n    <mat-form-field class=\"login-full-width\">\n        <input matInput placeholder=\"Email\" formControlName=\"email\" [errorStateMatcher]=\"matcher\">\n        <mat-hint>Errors appear instantly!</mat-hint>\n        <mat-error *ngIf=\"email.hasError('email') && !email.hasError('required')\">\n            Please enter a valid email address\n        </mat-error>\n        <mat-error *ngIf=\"email.hasError('required')\">\n            Email is <strong>required</strong>\n        </mat-error>\n\n    </mat-form-field>\n\n  \n\n      \n    <mat-form-field>\n        <input [max]=\"maxDate\" formControlName='data_nascimento' placeholder=\"Data de nascimento\" matInput [matDatepicker]=\"myDatepicker\">\n        <mat-datepicker-toggle matSuffix [for]=\"myDatepicker\"></mat-datepicker-toggle>\n        <mat-datepicker #myDatepicker></mat-datepicker>\n        <!-- <mat-hint>Data de nascimento!</mat-hint> -->\n\n    </mat-form-field>\n    <div>\n\n        <mat-form-field>\n            <mat-select  formControlName='id_estado' placeholder='Estado'>\n                <mat-option *ngFor=\"let estado of estados | async\" value=\"{{estado['ID']}}\">{{estado['Nome']}}</mat-option>\n\n            </mat-select>\n        </mat-form-field>\n        <mat-form-field>\n            <mat-select formControlName='id_cidade' placeholder='Cidade' >\n        \n                <div *ngIf='currentEstadoID.length > 0'>\n                  <mat-option *ngFor=\"let cidade of cidades | async|  filterByState: currentEstadoID\" value=\"{{cidade['ID']}}\">{{cidade['Nome']}}</mat-option>\n\n                </div>    \n\n            </mat-select>\n        </mat-form-field>\n      </div>\n      <div>\n\n        <button [disabled]=\"dadosForm.invalid\" type='submit' mat-raised-button color=\"primary\">Salvar</button>\n      </div>\n\n\n</form>"
 
 /***/ }),
 
@@ -1319,6 +1616,9 @@ module.exports = "<p>\n  dados works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DadosComponent", function() { return DadosComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _Tools_city_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Tools/city.service */ "./src/app/Tools/city.service.ts");
+/* harmony import */ var _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../api/services/user.service */ "./src/app/api/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1329,10 +1629,89 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var DadosComponent = /** @class */ (function () {
-    function DadosComponent() {
+
+
+
+var MyErrorStateMatcher = /** @class */ (function () {
+    function MyErrorStateMatcher() {
     }
+    MyErrorStateMatcher.prototype.isErrorState = function (control, form) {
+        var isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    };
+    return MyErrorStateMatcher;
+}());
+var DadosComponent = /** @class */ (function () {
+    function DadosComponent(cityService, userService) {
+        this.cityService = cityService;
+        this.userService = userService;
+        this.hide = true;
+        this.maxDate = new Date();
+        this.matcher = new MyErrorStateMatcher();
+    }
+    Object.defineProperty(DadosComponent.prototype, "email", {
+        get: function () { return this.dadosForm.get('email'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DadosComponent.prototype, "id_estado", {
+        get: function () { return this.dadosForm.get('id_estado'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DadosComponent.prototype, "id_cidade", {
+        get: function () { return this.dadosForm.get('id_cidade'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DadosComponent.prototype, "data_nascimento", {
+        get: function () { return this.dadosForm.get('data_nascimento'); },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DadosComponent.prototype, "name", {
+        get: function () { return this.dadosForm.get('name'); },
+        enumerable: true,
+        configurable: true
+    });
+    DadosComponent.prototype.insertData = function () {
+        this.currentEstadoID = this.user.id_estado;
+        this.dadosForm.setValue({
+            'name': this.user.name,
+            'email': this.user.email,
+            'id_cidade': (this.user.id_cidade).toString(),
+            'id_estado': (this.user.id_estado).toString(),
+            'data_nascimento': this.user.data_nascimento
+        });
+    };
     DadosComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.currentEstadoID = '2';
+        this.estados = this.cityService.getEstados();
+        this.cidades = this.cityService.getCidades();
+        this.dadosForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            'name': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            'email': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email,
+            ]),
+            'id_estado': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            'id_cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            'data_nascimento': new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
+            ]),
+        });
+        this.userService.getUser().subscribe(function (done) {
+            _this.user = done;
+            _this.insertData();
+        });
+        this.onChanges();
+    };
+    DadosComponent.prototype.onChanges = function () {
+        var _this = this;
+        this.id_estado.valueChanges.subscribe(function (val) {
+            _this.currentEstadoID = val;
+        });
     };
     DadosComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1340,7 +1719,8 @@ var DadosComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dados.component.html */ "./src/app/dashboard/dashboard-user/dados/dados.component.html"),
             styles: [__webpack_require__(/*! ./dados.component.css */ "./src/app/dashboard/dashboard-user/dados/dados.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_Tools_city_service__WEBPACK_IMPORTED_MODULE_2__["CityService"],
+            _api_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], DadosComponent);
     return DadosComponent;
 }());
@@ -1430,7 +1810,7 @@ module.exports = "table{\n\n    width:100%;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>\nHistorico de vacinas\n</h4>\n<p>Encontre todas as vacinas que tomou desde o começo</p>\n<mat-divider></mat-divider>\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\"\nmatSort matSortActive=\"created_at\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n  \n    <!-- Position Column -->\n    <ng-container matColumnDef=\"vacina\">\n      <th mat-header-cell *matHeaderCellDef >Vacina </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.vacina.name}} </td>\n    </ng-container>\n  \n    <!-- Name Column -->\n    <ng-container matColumnDef=\"aplicador\">\n      <th mat-header-cell *matHeaderCellDef > Aplicador  </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.registro.name}} </td>\n    </ng-container>\n  \n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"posto\">\n      <th mat-header-cell *matHeaderCellDef > Posto </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.posto.endereco}} </td>\n    </ng-container>\n  \n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"created_at\"  >\n      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Data </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.created_at |date}} </td>\n    </ng-container>\n  \n    <tr  mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>"
+module.exports = "<h4>\nHistorico de vacinas\n</h4>\n<p>Encontre todas as vacinas que tomou desde o começo</p>\n<mat-divider></mat-divider>\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\"\nmatSort matSortActive=\"created_at\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n  \n    <!-- Position Column -->\n    <ng-container matColumnDef=\"vacina\">\n      <th mat-header-cell *matHeaderCellDef >Vacina </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.vacina.name}} </td>\n    </ng-container>\n  \n    <!-- Name Column -->\n    <ng-container matColumnDef=\"aplicador\">\n      <th mat-header-cell *matHeaderCellDef > Aplicador  </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.registro.name}} </td>\n    </ng-container>\n  \n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"posto\">\n      <th mat-header-cell *matHeaderCellDef > Posto </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.aplicador.posto.endereco}} </td>\n    </ng-container>\n  \n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"created_at\"  >\n      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Data </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.created_at | date:'dd/MM/yyyy'}} </td>\n    </ng-container>\n  \n    <tr  mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>"
 
 /***/ }),
 
@@ -1445,8 +1825,8 @@ module.exports = "<h4>\nHistorico de vacinas\n</h4>\n<p>Encontre todas as vacina
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoComponent", function() { return HistoricoComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_historico_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/historico.service */ "./src/app/dashboard/dashboard-user/services/historico.service.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _api_services_historicos_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/services/historicos.service */ "./src/app/api/services/historicos.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1463,7 +1843,7 @@ var HistoricoComponent = /** @class */ (function () {
     function HistoricoComponent(hService) {
         this.hService = hService;
         this.historicoData = this.hService.get();
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"]();
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
         this.displayedColumns = ['vacina', 'aplicador', 'posto', 'created_at'];
     }
     HistoricoComponent.prototype.ngAfterViewInit = function () {
@@ -1474,8 +1854,8 @@ var HistoricoComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
     ], HistoricoComponent.prototype, "sort", void 0);
     HistoricoComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1483,7 +1863,7 @@ var HistoricoComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./historico.component.html */ "./src/app/dashboard/dashboard-user/historico/historico.component.html"),
             styles: [__webpack_require__(/*! ./historico.component.css */ "./src/app/dashboard/dashboard-user/historico/historico.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_historico_service__WEBPACK_IMPORTED_MODULE_1__["HistoricoService"]])
+        __metadata("design:paramtypes", [_api_services_historicos_service__WEBPACK_IMPORTED_MODULE_2__["HistoricosService"]])
     ], HistoricoComponent);
     return HistoricoComponent;
 }());
@@ -1499,7 +1879,7 @@ var HistoricoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ca{\n    \n    display: flex;\n    \n}\n.card{\n    margin:2px;\n}\n.ca div{\n\nmargin: 10px;\n}"
+module.exports = ".ca{\n    \n    display: flex;\n    \n}\n.card{\n    margin:2px;\n}\n.ca div{\n\nmargin: 10px;\n}\n.dados{\n    padding:5px;\n\n\n}\n.header{\n    background-color: bisque;\n    margin:0;\n    \n}\nul{\n    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);\n    margin:1px;\n    list-style: none;\n    padding:0;\n}\nul li{\n    margin:0;\n    padding:4px;\n    display: inline;\n    font-size:70%;\n\n}\nul li:first-child{\n\n    background-color: cadetblue;\n    color:white;\n}"
 
 /***/ }),
 
@@ -1510,7 +1890,7 @@ module.exports = ".ca{\n    \n    display: flex;\n    \n}\n.card{\n    margin:2p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>\n  Carteira de vacinação\n</h4>\n<p>Encontre todas as vacinas que tomou desde o começo</p>\n<mat-divider></mat-divider>\n<div class='ca'>\n  <mat-card *ngFor='let id of keys' class='card'>\n\n   <p>\n\n     \n     {{id}}\n     \n    </p>\n\n\n\n      <div *ngIf='!dataC[id][0].id_aplicador; else ok'>\n        Sem dados\n      </div>\n      \n      <ng-template #ok >\n\n      <div *ngFor='let vacina of dataC[id]'>\n        <p>\n          Data {{vacina.created_at|date}}\n        </p>\n        </div>\n      </ng-template>\n\n  </mat-card>\n</div>"
+module.exports = "<h4>\n  Carteira de vacinação\n</h4>\n<p>Encontre todas as vacinas que tomou desde o começo</p>\n<div class='ca'>\n  <mat-card class='header'>\n\n\n    <h4>\n      Vacinas\n    </h4>\n    <br>\n    <mat-divider></mat-divider>\n\n  </mat-card>\n  <mat-card *ngFor='let vacina of dataC' class='card'>\n    <mat-card>\n      <h4>\n\n        {{vacina.name}}\n        <!-- {{id}} -->\n\n      </h4>\n    </mat-card>\n    <br>\n    <mat-divider></mat-divider>\n\n\n    <!-- Data {{vacina.historico.created_at|date}} -->\n    <div *ngIf='vacina.historico && vacina.historico?.length > 0; else aa' class='dados'>\n \n      <div *ngFor='let historico of vacina.historico; let i = index  '>\n\n        <ul>\n\n          <li>\n            Dose {{i+1}}°\n          </li>\n          <li>\n            {{historico.created_at|date:'dd/MM/yyyy'}}\n\n          </li>\n        </ul>\n        \n        <i style='margin-left: 40%;' class=\"material-icons\" *ngIf='i < vacina.historico.length-1'>\n            arrow_downward\n            </i>\n      </div>\n    </div>\n    <ng-template #aa>\n      <p>\n\n        Sem dados\n      </p>\n    </ng-template>\n  </mat-card>\n\n</div>"
 
 /***/ }),
 
@@ -1545,7 +1925,7 @@ var MinhaCarterinhaComponent = /** @class */ (function () {
         var _this = this;
         this.carterinhaS.get().subscribe(function (data) {
             _this.dataC = data;
-            _this.keys = Object.keys(_this.dataC);
+            // this.keys=  Object.keys(this.dataC);
             console.log(data);
         });
     };
@@ -1612,51 +1992,6 @@ var CarterinhaService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard-user/services/historico.service.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/dashboard/dashboard-user/services/historico.service.ts ***!
-  \************************************************************************/
-/*! exports provided: HistoricoService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoricoService", function() { return HistoricoService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _api_api_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../api/api.module */ "./src/app/api/api.module.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var HistoricoService = /** @class */ (function () {
-    function HistoricoService(http) {
-        this.http = http;
-    }
-    HistoricoService.prototype.get = function () {
-        return this.http.get(_api_api_module__WEBPACK_IMPORTED_MODULE_2__["API_BASE_URL"] + 'historico');
-    };
-    HistoricoService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], HistoricoService);
-    return HistoricoService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/dashboard/dashboard.component.css":
 /*!***************************************************!*\
   !*** ./src/app/dashboard/dashboard.component.css ***!
@@ -1664,7 +1999,7 @@ var HistoricoService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sidemenu{\n\n}\n\n.example-container {\n    width: auto;\n    height: 30em;\n  }"
+module.exports = "\n.example-container {\n    width: auto;\n    height: 30em;\n  }\n\n  .sidemenu{\n    background-color: antiquewhite;\n    height: 100%;\n}\n\n  .example-container-user {\n    margin: 2em\n\n  }\n\n  .example-container {\n    width: auto;\n    height: 30em;\n    margin:1em;\n  }\n"
 
 /***/ }),
 
@@ -1675,7 +2010,7 @@ module.exports = ".sidemenu{\n\n}\n\n.example-container {\n    width: auto;\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n  <app-e-header-title>\n\n    \n    <p style='color:black;margin:1em'>\n      Aqui podera ver todos os seus dados, tais comos postos frequentados, carteirinha de vacinação,etc\n    </p>\n  </app-e-header-title>\n</app-e-header>\n\n  <router-outlet></router-outlet>"
+module.exports = "<app-e-header>\n  <app-e-header-title ngClass.style.backgroud-color='blue'>\n\n    \n    <p style='color:black;margin:1em'>\n      Aqui podera ver todos os seus dados, tais comos postos frequentados, carteirinha de vacinação,etc\n    </p>\n  </app-e-header-title>\n</app-e-header>\n\n  <router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -1992,6 +2327,7 @@ var MaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressSpinnerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatStepperModule"]
             ],
             exports: [
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"],
@@ -2010,7 +2346,8 @@ var MaterialModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSelectModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressSpinnerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSortModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatStepperModule"]
             ]
         })
     ], MaterialModule);
@@ -2112,6 +2449,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_dashboard_user_minha_carterinha_minha_carterinha_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../dashboard/dashboard-user/minha-carterinha/minha-carterinha.component */ "./src/app/dashboard/dashboard-user/minha-carterinha/minha-carterinha.component.ts");
 /* harmony import */ var _dashboard_dashboard_user_dados_dados_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../dashboard/dashboard-user/dados/dados.component */ "./src/app/dashboard/dashboard-user/dados/dados.component.ts");
 /* harmony import */ var _dashboard_dashboard_user_historico_historico_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../dashboard/dashboard-user/historico/historico.component */ "./src/app/dashboard/dashboard-user/historico/historico.component.ts");
+/* harmony import */ var _auth_session_end_session_end_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../auth/session-end/session-end.component */ "./src/app/auth/session-end/session-end.component.ts");
+/* harmony import */ var _dashboard_dashboard_applicator_vacina_apply_vacina_apply_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../dashboard/dashboard-applicator/vacina-apply/vacina-apply.component */ "./src/app/dashboard/dashboard-applicator/vacina-apply/vacina-apply.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2136,11 +2475,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
     { path: 'login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"], canActivate: [_auth_guest_guard__WEBPACK_IMPORTED_MODULE_13__["GuestGuard"]] },
     { path: 'teste', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     { path: 'register', component: _auth_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"], canActivate: [_auth_guest_guard__WEBPACK_IMPORTED_MODULE_13__["GuestGuard"]] },
     { path: 'logout', component: _auth_logout_logout_component__WEBPACK_IMPORTED_MODULE_6__["LogoutComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]] },
+    { path: 'session-end', component: _auth_session_end_session_end_component__WEBPACK_IMPORTED_MODULE_18__["SessionEndComponent"], canActivate: [_auth_guest_guard__WEBPACK_IMPORTED_MODULE_13__["GuestGuard"]] },
     {
         path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"],
         canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]],
@@ -2156,6 +2498,9 @@ var appRoutes = [
             {
                 path: 'applicator', component: _dashboard_dashboard_applicator_dashboard_applicator_component__WEBPACK_IMPORTED_MODULE_9__["DashboardApplicatorComponent"],
                 canActivate: [_auth_auth_applicator_guard__WEBPACK_IMPORTED_MODULE_10__["AuthApplicatorGuard"]],
+                children: [
+                    { path: 'aplicar', component: _dashboard_dashboard_applicator_vacina_apply_vacina_apply_component__WEBPACK_IMPORTED_MODULE_19__["VacinaApplyComponent"] },
+                ]
             },
             {
                 path: 'admin', component: _dashboard_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_12__["DashboardAdminComponent"],

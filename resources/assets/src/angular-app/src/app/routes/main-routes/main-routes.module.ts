@@ -17,12 +17,15 @@ import { DashboardUserComponent } from '../../dashboard/dashboard-user/dashboard
 import { MinhaCarterinhaComponent } from '../../dashboard/dashboard-user/minha-carterinha/minha-carterinha.component';
 import { DadosComponent } from '../../dashboard/dashboard-user/dados/dados.component';
 import { HistoricoComponent } from '../../dashboard/dashboard-user/historico/historico.component';
+import { SessionEndComponent } from '../../auth/session-end/session-end.component';
+import { VacinaApplyComponent } from '../../dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent, canActivate:[GuestGuard] },
   { path: 'teste', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate:[GuestGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
+  { path: 'session-end', component: SessionEndComponent, canActivate: [GuestGuard] },  
   {
     path: 'dashboard', component: DashboardComponent,
     
@@ -43,6 +46,12 @@ const appRoutes: Routes = [
       {
         path: 'applicator', component: DashboardApplicatorComponent,
         canActivate: [AuthApplicatorGuard],
+        children:
+        [
+          {path: 'aplicar', component: VacinaApplyComponent},
+        
+
+        ]
       },
       {
         path: 'admin', component: DashboardAdminComponent,

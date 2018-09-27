@@ -18,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','id_cidade','id_estado','data_nascimento'
+        'name', 'email', 'password','id_cidade','id_estado','data_nascimento','nivel_acesso'
     ];
 
     /**
@@ -53,5 +53,10 @@ class User extends Authenticatable implements JWTSubject
     
     }
 
+
+    public function aplicador(){
+        return $this->hasOne('VacinaOnline\Aplicador','id_registro');
+
+    }
 
 }

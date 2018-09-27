@@ -18,8 +18,8 @@ class CreateRegistroTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('cpf');
-            $table->integer('nivel_acesso');
+            $table->string('cpf')->default('000.000.000-00');
+            $table->integer('nivel_acesso')->default('0');
             $table->date('data_nascimento');
             $table->integer('id_cidade');
             $table->integer('id_estado');

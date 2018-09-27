@@ -11,7 +11,6 @@ import { finalize } from 'rxjs/operators';
 })
 export class MinhaCarterinhaComponent implements OnInit {
     dataC:any[];
-  keys:string[];
 
   constructor(private carterinhaS:CarterinhaService) { }
 
@@ -20,7 +19,7 @@ export class MinhaCarterinhaComponent implements OnInit {
 
       data => {
         this.dataC = data;
-        this.keys=  Object.keys(this.dataC);
+        // this.keys=  Object.keys(this.dataC);
         console.log(data);
       }
      );

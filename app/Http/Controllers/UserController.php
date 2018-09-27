@@ -5,7 +5,7 @@ namespace VacinaOnline\Http\Controllers;
 use Illuminate\Http\Request;
 use VacinaOnline\Vacina;
 use Illuminate\Support\Facades\DB;
-
+use VacinaOnline\Vacinas;
 class UserController extends Controller
 {
     //
@@ -17,7 +17,8 @@ class UserController extends Controller
 
         return response()->json($historico);
     }
-    public function carterinha(){
+    /*
+    public function carterinha2(){
         $user = auth()->user();
         
         //$vacinas = $user->historico()->load('vacina')->get()->groupBy('vacina.id');
@@ -31,13 +32,28 @@ class UserController extends Controller
         return response()->json($vacinas);
 
 
-    }
+    }*/
+    public function carterinha(){
+        $user = auth()->user();
 
+/*        $vacinas = Vacina::with('historico')
+            ->where('historico.id_registro','=',$user->id)
+  */
+        $vacinas =Vacina::with(["historico"=> function($q) use(  $user) {
+            $q->where("id_registro","=",$user->id);
+        }])->get();
+        
+        return response()->json($vacinas);
+    }
     public function vacinas(){
         $vacinas = Vacina::all()->pluck('name');;
 
 
         return response()->json($vacinas);
 
+    }
+
+    public function update(){
+        
     }
 }

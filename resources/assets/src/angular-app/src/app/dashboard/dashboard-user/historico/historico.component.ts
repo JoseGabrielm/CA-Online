@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { HistoricoService, historicoIn } from '../services/historico.service';
+// import { HistoricoUserService, historicoIn } from '../services/historico-user.service';
 import { Observable } from 'rxjs';
 import { MatSort, MatTableDataSource } from '@angular/material';
 import { map, startWith } from 'rxjs/operators';
+import { HistoricoGetModel, HistoricosService } from '../../../api/services/historicos.service';
 
 @Component({
   selector: 'app-historico',
@@ -11,8 +12,8 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class HistoricoComponent implements AfterViewInit {
 
-  constructor(private hService: HistoricoService) { }
-  historicoData: Observable<historicoIn[]>= this.hService.get();
+  constructor(private hService: HistoricosService) { }
+  historicoData: Observable<HistoricoGetModel[]>= this.hService.get();
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['vacina', 'aplicador', 'posto', 'created_at'];
   @ViewChild(MatSort) sort: MatSort;

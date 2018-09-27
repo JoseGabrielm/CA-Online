@@ -21,7 +21,7 @@ class CreateVacinasTable extends Migration
             $table->string('name');
             $table->date('data_de_validade');
             
-            $table->timestamps();
+    
         });
     }
 

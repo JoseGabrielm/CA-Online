@@ -14,7 +14,7 @@ class AplicadoresTableSeeder extends Seeder
         //
         DB::table('aplicadores')->insert([
             'id_posto' => 1,
-            'id_registro' => 2,
+            'id_registro' => 3,
             'endereco' => str_random(10),     
         ]);
     }

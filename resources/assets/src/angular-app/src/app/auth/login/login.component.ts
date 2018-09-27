@@ -6,8 +6,8 @@ import { Login } from '../services/login'
 
 import { NgxUiLoaderService } from 'ngx-ui-loader'; // Import NgxUiLoaderService
 import { Router } from '@angular/router';
-import { Observable, timer } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable, timer, interval, Subscription } from 'rxjs';
+import { finalize, map } from 'rxjs/operators';
 class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
@@ -33,6 +33,7 @@ export class LoginComponent {
         private ngxService: NgxUiLoaderService,
         private router:Router) {
     }
+    logSub : Subscription;
     ngOnInit(): void {
         
         this.formSubmitError = "";
@@ -79,15 +80,19 @@ export class LoginComponent {
                 localStorage.setItem('token', data['token']);
 
                 this.service.isLoggedIn();
-     
-                timer(0,1000*60).subscribe(
-                    function(){
-                        this.loginService.logout()
-                        .pipe(finalize(() => {
+                                // 1 hour
+                this.logSub= timer(1000*60*60).subscribe(
+                    data => {
+                        this.service.logout()
+                        .subscribe( x => {
+                            // console.log('tokken removed');
                             localStorage.removeItem('token');
-                            console.log('tokken removed');
-                            this.loginService.isLoggedIn();
-                        } ));
+                            this.service.isLoggedIn();
+                            this.logSub.unsubscribe();
+                            this.router.navigate(['/session-end']);
+
+
+                        });
                     }                   
                 );
                 this.router.navigate(['/dashboard']);

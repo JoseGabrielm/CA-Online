@@ -30,6 +30,8 @@ import { DashboardUserComponent } from './dashboard/dashboard-user/dashboard-use
 import { MinhaCarterinhaComponent } from './dashboard/dashboard-user/minha-carterinha/minha-carterinha.component';
 import { HistoricoComponent } from './dashboard/dashboard-user/historico/historico.component';
 import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component';
+import { SessionEndComponent } from './auth/session-end/session-end.component';
+import { VacinaApplyComponent } from './dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component
     MinhaCarterinhaComponent,
     HistoricoComponent,
     DadosComponent,
+    SessionEndComponent,
+    VacinaApplyComponent,
 ],
   imports: [
     BrowserModule,
