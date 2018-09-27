@@ -4,7 +4,7 @@ import { Cidade, Estado, CityService } from '../../../Tools/city.service';
 import { Observable } from 'rxjs';
 import { RegisterService } from '../../../auth/services/register.service';
 import { UserService, UserModel } from '../../../api/services/user.service';
-import { ErrorStateMatcher } from '@angular/material';
+import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -36,7 +36,8 @@ export class DadosComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   constructor(private cityService: CityService,
-    private userService: UserService) { }
+    private userService: UserService,
+  private snackBar: MatSnackBar) { }
 
 
   insertData(){
@@ -85,5 +86,8 @@ export class DadosComponent implements OnInit {
       this.currentEstadoID = val;
     })
   }
-
+  onSubmit(){
+    let snackBarRef = this.snackBar.open('Os dados foram salvos');
+    
+  }
 }

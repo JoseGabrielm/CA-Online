@@ -32,6 +32,7 @@ import { HistoricoComponent } from './dashboard/dashboard-user/historico/histori
 import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component';
 import { SessionEndComponent } from './auth/session-end/session-end.component';
 import { VacinaApplyComponent } from './dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,10 @@ import { VacinaApplyComponent } from './dashboard/dashboard-applicator/vacina-ap
     NgxUiLoaderModule,
     InterceptorModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

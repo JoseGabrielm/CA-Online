@@ -40,10 +40,10 @@
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
+    <ng-template matStepLabel>Final</ng-template>
+    Confirme para aplicar a vacina:
     <div>
-      <button mat-button (click)='onSubmit()'>Aplicar</button>
+      <button mat-button mat-raised-button color="primary" (click)='onSubmit()'>Aplicar</button>
       <button mat-button  matStepperPrevious>Voltar</button>
       <button mat-button (click)="stepper.reset()">Recomeçar</button>
     </div>
