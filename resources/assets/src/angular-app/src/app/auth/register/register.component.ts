@@ -72,14 +72,19 @@ get name()  { return this.registerForm.get('name');}
 
   MatchPassword(AC: FormGroup): ValidatorFn {
 
-    let password = AC.get('password').value; // to get value in input tag
-    let confirmPassword = AC.get('confirmPassword').value; // to get value in input tag
+    let password = AC.get('password'); // to get value in input tag
+    let confirmPassword = AC.get('confirmPassword'); // to get value in input tag
 
-    if (password !== confirmPassword) {
-      AC.get('confirmPassword').setErrors({ MatchPassword: true });
-
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setErrors({ MatchPassword: true });
+      confirmPassword.markAsDirty();
     } else {
 
+      if(confirmPassword.hasError('MatchPassword')){
+        // confirmPassword.setErrors({ MatchPassword: null });
+        delete confirmPassword.errors['MatchPassword'];
+        confirmPassword.updateValueAndValidity();
+      }
       return null
     }
   }

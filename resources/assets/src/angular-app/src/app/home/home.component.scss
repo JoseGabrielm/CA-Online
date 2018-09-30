@@ -1,15 +1,28 @@
 
-.home-content{
-    margin:3em;
+.default-margin-home{
+    margin:1em;
     padding:2em;
-
+}
+.home-content{
+    
+    display: inline-flex;
+    // max-width: 1200px;
+    @extend .default-margin-home;
 }
 
-.gtile{
-    margin:30px;
-    margin-top:1em;
+.additional-info{
+    @extend .default-margin-home;
     
 }
+
+img{
+    max-height: 400px;
+    max-width: 500px;
+    width: auto;
+    height: auto;
+}
+
+
 
 :host ::ng-deep .e-header {
     margin:0 !important;

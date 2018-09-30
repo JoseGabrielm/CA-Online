@@ -28,6 +28,7 @@ export class LoginService {
 
     return this.http.post<string>(api.API_BASE_URL + 'logout', null);
   }
+
   isLoggedIn() {
     let token = localStorage.getItem('token');
 

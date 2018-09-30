@@ -139,6 +139,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _auth_services_login_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../auth/services/login.service */ "./src/app/auth/services/login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -151,25 +154,49 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var HttpsRequestInterceptor = /** @class */ (function () {
-    function HttpsRequestInterceptor(meta) {
+    function HttpsRequestInterceptor(meta, router, authService) {
         this.meta = meta;
+        this.router = router;
+        this.authService = authService;
     }
     HttpsRequestInterceptor.prototype.intercept = function (req, next) {
+        var _this = this;
         var token = this.meta.getTag('name=csrf-token').content;
         var token2 = 'NOT FOUND';
-        if (localStorage.getItem('token')) {
+        //if (localStorage.getItem('token')) {
+        if (this.authService.isLoggedIn()) {
             token2 = 'Bearer ' + localStorage.getItem('token');
         }
         var dupReq = req.clone({
             headers: req.headers.set('X-Csrf-Token', token).
                 set('Authorization', token2)
         });
-        return next.handle(dupReq);
+        return next.handle(dupReq).
+            pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (event) {
+            if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]) {
+            }
+        }, function (error) {
+            // http response status code
+            switch (error.status) {
+                case 401:
+                    localStorage.removeItem('token');
+                    _this.authService.isLoggedIn();
+                    _this.router.navigate(['/session-end']);
+                    break;
+                default: break;
+            }
+        }));
     };
     HttpsRequestInterceptor = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Meta"]])
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Meta"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _auth_services_login_service__WEBPACK_IMPORTED_MODULE_5__["LoginService"]])
     ], HttpsRequestInterceptor);
     return HttpsRequestInterceptor;
 }());
@@ -1057,12 +1084,18 @@ var RegisterComponent = /** @class */ (function () {
         configurable: true
     });
     RegisterComponent.prototype.MatchPassword = function (AC) {
-        var password = AC.get('password').value; // to get value in input tag
-        var confirmPassword = AC.get('confirmPassword').value; // to get value in input tag
-        if (password !== confirmPassword) {
-            AC.get('confirmPassword').setErrors({ MatchPassword: true });
+        var password = AC.get('password'); // to get value in input tag
+        var confirmPassword = AC.get('confirmPassword'); // to get value in input tag
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.setErrors({ MatchPassword: true });
+            confirmPassword.markAsDirty();
         }
         else {
+            if (confirmPassword.hasError('MatchPassword')) {
+                // confirmPassword.setErrors({ MatchPassword: null });
+                delete confirmPassword.errors['MatchPassword'];
+                confirmPassword.updateValueAndValidity();
+            }
             return null;
         }
     };
@@ -2210,7 +2243,7 @@ var EHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-e-header>\n    <app-e-header-title>\n        <div >\n            <h1>\n\n                Carteira de Vacinação Online\n            </h1>\n            <h2 style='font-size: 18px;\n                        font-weight: 300;\n                        line-height: 28px;'>\n                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!\n            </h2>\n\n\n            <button mat-raised-button routerLink='/login'> Começar a aventura!</button>\n        </div>\n\n\n\n    </app-e-header-title>\n\n\n\n</app-e-header>\n<mat-sidenav-container class=\"example-container\">\n\n    <mat-grid-list class='gtile ' [cols]=\"columnNum\"  gutterSize='2em'>\n        <mat-grid-tile>\n\n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n        </mat-grid-tile>\n\n        <mat-grid-tile>\n                <mat-card class='home-content'>\n\n                    <mat-card-content>\n\n                        \n                        \n                        \n                        Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                        Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\n                        da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar\n                        o Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação\n                        e encaminhamento dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente\n                        também não se lembra se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se\n                        imunizar novamente. Vale destacar que a campanha de febre amarela é preventiva e voltada aos moradores\n                        da zona norte de São Paulo. A ação começou no dia 21 de outubro, após um macaco ser encontrado morto\n                        no Horto Florestal vítima de febre amarela. Dose única para toda a vida A vacina contra a febre amarela\n                        é a melhor forma de se prevenir da doença, e uma única dose é o suficiente para se proteger por toda\n                        a vida. Mas nem todos devem tomar. O imunizante não é indicado para gestantes, mulheres amamentando\n                        crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento quimioterápico,\n                        radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais de 500\n                        mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar\n                        moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente\n                        na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas\n                        de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram vacinados,\n                        segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas que\n                        precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\n                    </mat-card-content>\n                    \n                </mat-card>\n                \n            </mat-grid-tile>\n                \n                \n                <mat-grid-tile>\n            <mat-card class='home-content'>\n                <mat-card-content>\n                        \n\n\n                    Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                    Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate\n                    da 2ª via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o\n                    Programa Nacional de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento\n                    dos questionamentos das atividades de vacinação das unidades de saúde. Muita gente também não se lembra\n                    se já tomou ou não a vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale\n                    destacar que a campanha de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo.\n                    A ação começou no dia 21 de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de\n                    febre amarela. Dose única para toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir\n                    da doença, e uma única dose é o suficiente para se proteger por toda a vida. Mas nem todos devem tomar.\n                    O imunizante não é indicado para gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas,\n                    como pacientes em tratamento quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores\n                    de Lúpus, por exemplo). Mais de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa\n                    da campanha, que era de vacinar moradores da região do entorno dos parques do Horto, Cantareira e Anhanguera,\n                    foi batida. Somente na quinta-feira (2), feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs\n                    (Unidades Básicas de Saúde), que atenderam até as 14h. Até agora, 539.949 moradores da zona norte foram\n                    vacinados, segundo a secretaria de saúde. Vale ressaltar que as ações de rotina — vacinação para pessoas\n                    que precisam viajar para áreas de risco, seguem nos demais postos da cidade. Veja a lista completa aqui\n                </mat-card-content>\n            </mat-card>\n        </mat-grid-tile>\n\n        <mat-grid-tile>\n            \n            <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n        </mat-grid-tile>\n\n    </mat-grid-list>\n\n    <mat-card class='home-content'>\n\n\n        <mat-card-title>\n            Alguma coisa\n\n\n\n            <!-- This fills the remaining space of the current row -->\n        </mat-card-title>\n        <mat-card-subtitle>\n            blblavbl\n        </mat-card-subtitle>\n        <mat-card-content>\n            <div>\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur\n                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n            </div>\n\n        </mat-card-content>\n\n    </mat-card>\n\n\n\n\n</mat-sidenav-container>"
+module.exports = "<app-e-header>\n    <app-e-header-title>\n        <div>\n            <h1>\n\n                Carteira de Vacinação Online\n            </h1>\n            <h2 style='font-size: 18px;\n                        font-weight: 300;\n                        line-height: 28px;'>\n                Saia do passado, tenha acesso a sua carterinha de vacinação a qualquer monento!\n            </h2>\n\n\n            <button mat-raised-button routerLink='/login'> Começar a aventura!</button>\n        </div>\n\n\n\n    </app-e-header-title>\n\n\n\n</app-e-header>\n<mat-sidenav-container class=\"example-container\">\n\n\n    <div class=\"home-content\">\n\n        <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n\n        <mat-card>\n\n            <mat-card-content>\n\n\n\n\n                Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate da 2ª\n                via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o Programa Nacional\n                de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento dos questionamentos\n                das atividades de vacinação das unidades de saúde. Muita gente também não se lembra se já tomou ou não a\n                vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale destacar que a campanha\n                de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo. A ação começou no dia 21\n                de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de febre amarela. Dose única para\n                toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir da doença, e uma única dose é\n                o suficiente para se proteger por toda a vida. Mas nem todos devem tomar. O imunizante não é indicado para\n                gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento\n                quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais\n                de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar moradores\n                da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente na quinta-feira (2),\n                feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas de Saúde), que atenderam até\n                as 14h. Até agora, 539.949 moradores da zona norte foram vacinados, segundo a secretaria de saúde. Vale ressaltar\n                que as ações de rotina — vacinação para pessoas que precisam viajar para áreas de risco, seguem nos demais\n                postos da cidade. Veja a lista completa aqui\n            </mat-card-content>\n\n        </mat-card>\n    </div>\n\n    <div class=\"home-content\">\n\n\n        <mat-card>\n\n            <mat-card-content>\n\n\n\n\n                Perdeu a carterinha de vacinação e precisa tomar a vacina da febre amarela? A orientação da Anvisa (Agência Nacional de Vigilância\n                Sanitária) é que a pessoa entre em contato com o local onde foi realizada a vacinação para o resgate da 2ª\n                via. Em caso de dúvida ou impossibilidade de adquirir a carteira de vacinação, vale procurar o Programa Nacional\n                de Imunização/ Ministério da Saúde. Esse setor é o responsável para avaliação e encaminhamento dos questionamentos\n                das atividades de vacinação das unidades de saúde. Muita gente também não se lembra se já tomou ou não a\n                vacina da febre amarela. Na dúvida, a recomendação é se imunizar novamente. Vale destacar que a campanha\n                de febre amarela é preventiva e voltada aos moradores da zona norte de São Paulo. A ação começou no dia 21\n                de outubro, após um macaco ser encontrado morto no Horto Florestal vítima de febre amarela. Dose única para\n                toda a vida A vacina contra a febre amarela é a melhor forma de se prevenir da doença, e uma única dose é\n                o suficiente para se proteger por toda a vida. Mas nem todos devem tomar. O imunizante não é indicado para\n                gestantes, mulheres amamentando crianças com até 6 meses e pessoas imunodeprimidas, como pacientes em tratamento\n                quimioterápico, radioterápico ou com corticoides em doses elevadas (portadores de Lúpus, por exemplo). Mais\n                de 500 mil se imunizaram Na quarta-feira (1º), a meta da primeira etapa da campanha, que era de vacinar moradores\n                da região do entorno dos parques do Horto, Cantareira e Anhanguera, foi batida. Somente na quinta-feira (2),\n                feriado de Finados, 34.222 pessoas se vacinaram nas 37 UBSs (Unidades Básicas de Saúde), que atenderam até\n                as 14h. Até agora, 539.949 moradores da zona norte foram vacinados, segundo a secretaria de saúde. Vale ressaltar\n                que as ações de rotina — vacinação para pessoas que precisam viajar para áreas de risco, seguem nos demais\n                postos da cidade. Veja a lista completa aqui\n            </mat-card-content>\n\n        </mat-card>\n        <img src='/imagens/o-medico-de-ontem-de-hoje-e-do-futuro-media.png'>\n    </div>\n\n    <mat-card class='additional-info'>\n\n\n        <mat-card-title>\n            Alguma coisa\n\n\n\n            <!-- This fills the remaining space of the current row -->\n        </mat-card-title>\n        <mat-card-subtitle>\n            blblavbl\n        </mat-card-subtitle>\n        <mat-card-content>\n            <div>\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur\n                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n            </div>\n\n        </mat-card-content>\n\n    </mat-card>\n\n\n\n\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -2221,7 +2254,7 @@ module.exports = "<app-e-header>\n    <app-e-header-title>\n        <div >\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".home-content {\n  margin: 3em;\n  padding: 2em; }\n\n.gtile {\n  margin: 30px;\n  margin-top: 1em; }\n\n:host ::ng-deep .e-header {\n  margin: 0 !important; }\n\n:host ::ng-deep .e-header div {\n    text-align: center;\n    font-weight: 300;\n    padding: 50px; }\n\n:host ::ng-deep .e-header h1 {\n    line-height: 56px !important;\n    font-size: 56px !important;\n    font: 400 24px/32px Roboto,\"Helvetica Neue\",sans-serif; }\n\n.example-container {\n  flex: 1 !important; }\n"
+module.exports = ".default-margin-home, .home-content, .additional-info {\n  margin: 1em;\n  padding: 2em; }\n\n.home-content {\n  display: inline-flex; }\n\nimg {\n  max-height: 400px;\n  max-width: 500px;\n  width: auto;\n  height: auto; }\n\n:host ::ng-deep .e-header {\n  margin: 0 !important; }\n\n:host ::ng-deep .e-header div {\n    text-align: center;\n    font-weight: 300;\n    padding: 50px; }\n\n:host ::ng-deep .e-header h1 {\n    line-height: 56px !important;\n    font-size: 56px !important;\n    font: 400 24px/32px Roboto,\"Helvetica Neue\",sans-serif; }\n\n.example-container {\n  flex: 1 !important; }\n"
 
 /***/ }),
 
