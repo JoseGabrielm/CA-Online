@@ -37,7 +37,7 @@ class RegistrosTableSeeder extends Seeder
             [
             'name' => 'Pedro Honorio',
             'email' => 'aplicador'.'@gmail.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('user'),
             'cpf' => str_random(10),
             'nivel_acesso' => 1,
             'data_nascimento' => date("Y-m-d H:i:s"),

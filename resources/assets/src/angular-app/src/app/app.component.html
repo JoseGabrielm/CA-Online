@@ -39,7 +39,16 @@
 <mat-menu x-position="before" #menu>
     <!-- <button mat-menu-item routerLink="/login">Entrar</button>
     <button mat-menu-item routerLink="/dashboard">Dashboard</button> -->
+    <div *ngIf="loginService.loggedIn|async ; else loggedOut1" >
+        <button mat-menu-item routerLink="/logout"> Sair </button>
+        <button mat-menu-item routerLink="/dashboard"> Dashboard </button>
 
+    </div>
+    <ng-template #loggedOut1>
+            <button  mat-menu-item routerLink="/login"> Login </button>
+        
+            <button  mat-menu-item  routerLink="/register"> Registrar </button>             
+    </ng-template>
 </mat-menu>
 
 <router-outlet>
