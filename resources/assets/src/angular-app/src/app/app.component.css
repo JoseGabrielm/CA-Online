@@ -16,11 +16,29 @@
     letter-spacing: .3px;
 }
 .active{
-  /* /  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12); */
-   padding:1em;
-    background-color:rgba(0, 0, 0, 0.473);
-    border-bottom: 0.1em solid black;
+   
+    box-shadow: 1px 1px 18px 0 rgba(0,0,0,.12); 
+     /* padding:0.3em;  ; */
+     /* background-color:rgba(0, 0, 0, 0.473);  */
+   
+
+
+    /*
+    transition: opacity 0.5s, padding 0.25s;
+    transition-property: width height background-color font-size left top color;
+    transition-timing-function: cubic-bezier(0.005, 0.625, 0.365, 0.0840); */
+  /* The default, as in, you get this without defining anything */
+
+
+  /* transition-timing-function: ease-in; */
+
+
+  /* A litttttle slower on the way in */
+  transition: all 0.2s;  
+
+  transition-timing-function:ease-in;
 }
+
 .footer{
 
 

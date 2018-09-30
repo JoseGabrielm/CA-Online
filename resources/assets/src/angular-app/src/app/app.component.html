@@ -14,15 +14,56 @@
     <span class="fill-remaining-space"></span>
 
     <div fxLayout="row" fxHide fxShow.gt-sm>
+        <button   routerLinkActive="active"  mat-button routerLink="/help">  
+            <i class="material-icons">
+                help
+            </i>
+            AJUDA   
+        </button>
+
+            <button   routerLinkActive="active"  mat-button routerLink="/notifications">
+
+                <i class="material-icons">
+                    notifications_none
+                    </i>
+                NOTICAÇÕES
+            
+            </button>
+        <button   routerLinkActive="active"  mat-button routerLink="/about-us"> 
+            <i class="material-icons">
+                    copyright
+                    </i>
+            SOBRE </button>
+
+
+
         <div *ngIf="loginService.loggedIn|async ; else loggedOut" >
-            <button mat-button routerLink="/logout"> Sair </button>
-            <button mat-button routerLink="/dashboard"> Dashboard </button>
+            <button   routerLinkActive="active"  mat-button routerLink="/dashboard">  
+                <i class="material-icons">
+                    dashboard
+                </i>
+                ACESSAR
+            </button>
+            <button   routerLinkActive="active"  mat-button routerLink="/logout"> 
+                <i class="material-icons">
+                    exit_to_app
+                    </i>
+                SAIR
+            </button>
 
         </div>
         <ng-template #loggedOut>
-                <button  routerLinkActive="active" mat-button routerLink="/login"> Login </button>
+                <button  routerLinkActive="active" mat-button routerLink="/login"> 
+                    <i class="material-icons">
+                            account_circle
+                            </i>
+                    ENTRAR </button>
             
-                <button  routerLinkActive="active" mat-button routerLink="/register"> Registrar </button>             
+                <button  routerLinkActive="active" mat-button routerLink="/register">
+                    <i class="material-icons">
+                            person_add
+                            </i>
+                    REGISTRAR </button>             
         </ng-template>
 
     </div>     
@@ -40,7 +81,11 @@
     <!-- <button mat-menu-item routerLink="/login">Entrar</button>
     <button mat-menu-item routerLink="/dashboard">Dashboard</button> -->
     <div *ngIf="loginService.loggedIn|async ; else loggedOut1" >
-        <button mat-menu-item routerLink="/logout"> Sair </button>
+        <button mat-menu-item routerLink="/logout"> 
+            <i class="material-icons">
+                exit_to_app
+                </i>
+        </button>
         <button mat-menu-item routerLink="/dashboard"> Dashboard </button>
 
     </div>

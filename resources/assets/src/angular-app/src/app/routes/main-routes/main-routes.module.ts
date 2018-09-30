@@ -19,10 +19,14 @@ import { DadosComponent } from '../../dashboard/dashboard-user/dados/dados.compo
 import { HistoricoComponent } from '../../dashboard/dashboard-user/historico/historico.component';
 import { SessionEndComponent } from '../../auth/session-end/session-end.component';
 import { VacinaApplyComponent } from '../../dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
+import { AboutUsComponent } from '../../about-us/about-us.component';
+import { HelpComponent } from '../../help/help.component';
 
 const appRoutes: Routes = [
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'help', component: HelpComponent },
+  { path: 'notications', component: HelpComponent },
   { path: 'login', component: LoginComponent, canActivate:[GuestGuard] },
-  { path: 'teste', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate:[GuestGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: 'session-end', component: SessionEndComponent, canActivate: [GuestGuard] },  

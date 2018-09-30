@@ -48,10 +48,12 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
 
           switch (error.status) {
             case 401:
+              if (this.authService.isLoggedIn()) {
 
-              localStorage.removeItem('token');
-              this.authService.isLoggedIn();
-              this.router.navigate(['/session-end']);
+                localStorage.removeItem('token');
+                this.authService.isLoggedIn();
+                this.router.navigate(['/session-end']);
+              }
               break;
             default: break;
           }

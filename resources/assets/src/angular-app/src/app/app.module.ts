@@ -33,6 +33,10 @@ import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component
 import { SessionEndComponent } from './auth/session-end/session-end.component';
 import { VacinaApplyComponent } from './dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/material';
+import { SearchComponent } from './dashboard/dashboard-applicator/search/search.component';
+import { PostoComponent } from './dashboard/dashboard-applicator/posto/posto.component';
+import { HelpComponent } from './help/help.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +58,10 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/mater
     DadosComponent,
     SessionEndComponent,
     VacinaApplyComponent,
+    SearchComponent,
+    PostoComponent,
+    HelpComponent,
+    AboutUsComponent,
 ],
   imports: [
     BrowserModule,
