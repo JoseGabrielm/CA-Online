@@ -37,6 +37,10 @@ import { SearchComponent } from './dashboard/dashboard-applicator/search/search.
 import { PostoComponent } from './dashboard/dashboard-applicator/posto/posto.component';
 import { HelpComponent } from './help/help.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+
+import 'hammerjs';
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +78,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     FormsModule,
     ReactiveFormsModule,
     NgxUiLoaderModule,
-    InterceptorModule
+    InterceptorModule,
+    NgxHmCarouselModule
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}

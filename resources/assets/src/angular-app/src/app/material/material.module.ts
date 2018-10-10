@@ -42,7 +42,8 @@ import {
     MatTableModule,
     MatSortModule,
     MatStepperModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    
   ],
   exports: [
     MatButtonModule,

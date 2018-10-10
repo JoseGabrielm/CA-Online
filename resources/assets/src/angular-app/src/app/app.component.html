@@ -1,11 +1,10 @@
-
 <mat-toolbar class='nav' color="primary">
-    <div >
+    <div>
 
-        <button  routerLinkActive="active"  mat-button routerLink="/home" style="margin-top:5px">
+        <button routerLinkActive="active" mat-button routerLink="/home" style="margin-top:5px">
             <!-- <mat-icon>home</mat-icon>  -->
-            <img width="60px" height="60px" src='imagens/logo.png'>
-            <h3> 
+            <img width="60px" height="60px" src='imagens/Iconapp_logo.png'>
+            <h3>
                 {{title}}
             </h3>
         </button>
@@ -14,90 +13,110 @@
     <span class="fill-remaining-space"></span>
 
     <div fxLayout="row" fxHide fxShow.gt-sm>
-        <button   routerLinkActive="active"  mat-button routerLink="/help">  
+        <button routerLinkActive="active" mat-button routerLink="/help">
             <i class="material-icons">
                 help
             </i>
-            AJUDA   
+            AJUDA
         </button>
 
-            <button   routerLinkActive="active"  mat-button routerLink="/notifications">
+        <button routerLinkActive="active" mat-button routerLink="/notifications">
 
-                <i class="material-icons">
-                    notifications_none
-                    </i>
-                NOTICAÇÕES
-            
-            </button>
-        <button   routerLinkActive="active"  mat-button routerLink="/about-us"> 
             <i class="material-icons">
-                    copyright
-                    </i>
+                notifications_none
+            </i>
+            NOTICAÇÕES
+
+        </button>
+        <button routerLinkActive="active" mat-button routerLink="/about-us">
+            <i class="material-icons">
+                copyright
+            </i>
             SOBRE </button>
 
 
 
-        <div *ngIf="loginService.loggedIn|async ; else loggedOut" >
-            <button   routerLinkActive="active"  mat-button routerLink="/dashboard">  
+        <div *ngIf="loginService.loggedIn|async ; else loggedOut">
+            <button routerLinkActive="active" mat-button routerLink="/dashboard">
                 <i class="material-icons">
                     dashboard
                 </i>
                 ACESSAR
             </button>
-            <button   routerLinkActive="active"  mat-button routerLink="/logout"> 
+            <button routerLinkActive="active" mat-button routerLink="/logout">
                 <i class="material-icons">
                     exit_to_app
-                    </i>
+                </i>
                 SAIR
             </button>
 
         </div>
         <ng-template #loggedOut>
-                <button  routerLinkActive="active" mat-button routerLink="/login"> 
-                    <i class="material-icons">
-                            account_circle
-                            </i>
-                    ENTRAR </button>
-            
-                <button  routerLinkActive="active" mat-button routerLink="/register">
-                    <i class="material-icons">
-                            person_add
-                            </i>
-                    REGISTRAR </button>             
+            <button routerLinkActive="active" mat-button routerLink="/login">
+                <i class="material-icons">
+                    account_circle
+                </i>
+                ENTRAR </button>
+
+            <button routerLinkActive="active" mat-button routerLink="/register">
+                <i class="material-icons">
+                    person_add
+                </i>
+                REGISTRAR </button>
         </ng-template>
 
-    </div>     
-  
-<!-- 
+    </div>
+
+    <!-- 
         <button mat-button routerLink="/login">Entrar</button>
   
         <button mat-button routerLink="/dashboard">Dashboard</button> -->
     <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
-     <mat-icon>menu</mat-icon>
+        <mat-icon>menu</mat-icon>
     </button>
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu>
     <!-- <button mat-menu-item routerLink="/login">Entrar</button>
     <button mat-menu-item routerLink="/dashboard">Dashboard</button> -->
-    <div *ngIf="loginService.loggedIn|async ; else loggedOut1" >
-        <button mat-menu-item routerLink="/logout"> 
+    <div *ngIf="loginService.loggedIn|async ; else loggedOut1">
+        <button mat-menu-item routerLink="/logout">
             <i class="material-icons">
                 exit_to_app
-                </i>
+            </i>
         </button>
         <button mat-menu-item routerLink="/dashboard"> Dashboard </button>
+        <button routerLinkActive="active" mat-button routerLink="/help">
+            <i class="material-icons">
+                help
+            </i>
+            AJUDA
+        </button>
+
+        <button routerLinkActive="active" mat-menu-item routerLink="/notifications">
+
+            <i class="material-icons">
+                notifications_none
+            </i>
+            NOTICAÇÕES
+
+        </button>
+        <button routerLinkActive="active" mat-menu-item routerLink="/about-us">
+            <i class="material-icons">
+                copyright
+            </i>
+            SOBRE </button>
 
     </div>
     <ng-template #loggedOut1>
-            <button  mat-menu-item routerLink="/login"> Login </button>
-        
-            <button  mat-menu-item  routerLink="/register"> Registrar </button>             
+        <button mat-menu-item routerLink="/login"> Login </button>
+
+        <button mat-menu-item routerLink="/register"> Registrar </button>
     </ng-template>
 </mat-menu>
 
 <router-outlet>
-    
+
 </router-outlet>
 <ngx-loading-bar></ngx-loading-bar>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -7,7 +7,7 @@ import { LoginService } from './auth/services/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CA Online';
+  title = 'C.A ONLINE';
 
   constructor(private loginService:LoginService) { 
     

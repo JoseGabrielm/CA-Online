@@ -27,5 +27,17 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
   }
-
+  index = 0;
+  infinite = true;
+  direction = 'right';
+  directionToggle = true;
+  autoplay = true;
+  avatars = '1'.split('').map((x, i) => {
+    const num = i;
+    // const num = Math.floor(Math.random() * 1000);
+    return {
+      url: `https://picsum.photos/600/400/?${num}`,
+      title: `${num}`
+    };
+  });
 }
