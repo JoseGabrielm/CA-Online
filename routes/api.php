@@ -26,6 +26,7 @@ Route::group([
     Route::get('historico', 'UserController@historico');
     Route::get('vacinas', 'UserController@vacinas');
     Route::get('carterinha', 'UserController@carterinha');
+    Route::post('user', 'UserController@update');
 
     Route::group([
         'middleware' => 'role:1',

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { RegisterService } from '../../../auth/services/register.service';
 import { UserService, UserModel } from '../../../api/services/user.service';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
+import { formatDate } from '../../../../../node_modules/@angular/common';
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -27,29 +28,32 @@ export class DadosComponent implements OnInit {
   get data_nascimento() { return this.dadosForm.get('data_nascimento'); }
   get name() { return this.dadosForm.get('name'); }
   cidades: Observable<Cidade[]>;
-  currentEstadoID: string ;
+  currentEstadoID: string;
   estados: Observable<Estado[]>;
-  errors:Array<string>;
-  user:UserModel;
-  done:Array<string>;
+  errors: Array<string>;
+  user: UserModel;
+  done: Array<string>;
   maxDate = new Date();
   matcher = new MyErrorStateMatcher();
 
   constructor(private cityService: CityService,
     private userService: UserService,
-  private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar) { }
 
+  
 
-  insertData(){
+  insertData() {
     this.currentEstadoID = this.user.id_estado;
-
+    let cdate = new Date(this.user.data_nascimento);
+    cdate.setUTCHours(24);
     this.dadosForm.setValue(
       {
-        'name':this.user.name,
-        'email':this.user.email,
+        
+        'name': this.user.name,
+        'email': this.user.email,
         'id_cidade': (this.user.id_cidade).toString(),
-        'id_estado':(this.user.id_estado).toString(),
-        'data_nascimento': this.user.data_nascimento
+        'id_estado': (this.user.id_estado).toString(),
+        'data_nascimento':  cdate
       });
   }
   ngOnInit() {
@@ -71,23 +75,33 @@ export class DadosComponent implements OnInit {
         Validators.required
       ]),
     });
-     this.userService.getUser().subscribe(
+    this.userService.getUser().subscribe(
       done => {
         this.user = done;
         this.insertData();
       }
     )
-    
+
     this.onChanges();
 
   }
-  onChanges(){
+  onChanges() {
     this.id_estado.valueChanges.subscribe(val => {
       this.currentEstadoID = val;
     })
   }
-  onSubmit(){
-    let snackBarRef = this.snackBar.open('Os dados foram salvos');
-    
+  onSubmit() {
+  
+    this.userService.updateUser(this.dadosForm.value).subscribe( 
+        done => {
+
+          let snackBarRef = this.snackBar.open('Os dados foram salvos');
+
+        },
+        errors =>{
+          let snackBarRef = this.snackBar.open('Erro ao salvar os dados');
+          console.error(errors);
+        }
+      );
   }
 }

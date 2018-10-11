@@ -3,9 +3,13 @@
 namespace VacinaOnline\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use VacinaOnline\Vacina;
 use Illuminate\Support\Facades\DB;
 use VacinaOnline\Vacinas;
+use VacinaOnline\Http\Requests\UserRequest;
+
+
 class UserController extends Controller
 {
     //
@@ -53,7 +57,16 @@ class UserController extends Controller
 
     }
 
-    public function update(){
+    public function update(UserRequest $request){
+          //
+        $validated = $request->validated();
+        $validated['data_nascimento'] = new \DateTime($validated['data_nascimento']);
         
+        $user = auth()->user();
+        return response()->json(
+
+            $user->fill($validated)->save()
+
+        );
     }
 }

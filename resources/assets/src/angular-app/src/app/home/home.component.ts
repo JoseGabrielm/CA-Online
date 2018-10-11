@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   direction = 'right';
   directionToggle = true;
   autoplay = true;
-  avatars = '1'.split('').map((x, i) => {
+  avatars = '1234567'.split('').map((x, i) => {
     const num = i;
     // const num = Math.floor(Math.random() * 1000);
     return {

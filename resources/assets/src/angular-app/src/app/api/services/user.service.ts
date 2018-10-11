@@ -26,4 +26,7 @@ export class UserService {
   getUser() : Observable<UserModel>{
     return this.http.get<UserModel>(API_BASE_URL+'user');
   }
+  updateUser(user:UserModel ) : Observable<any>{
+    return this.http.post<any>(API_BASE_URL+'user', user);
+  }
 }

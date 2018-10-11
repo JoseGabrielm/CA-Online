@@ -26,6 +26,11 @@ class UserRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required', 
+            'email' => 'required', 
+            'id_cidade' => 'required',          
+            'id_estado' => 'required',  
+            'data_nascimento' => 'required', 
         ];
     }
 }

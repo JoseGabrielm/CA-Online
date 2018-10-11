@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -32,7 +32,7 @@ import { HistoricoComponent } from './dashboard/dashboard-user/historico/histori
 import { DadosComponent } from './dashboard/dashboard-user/dados/dados.component';
 import { SessionEndComponent } from './auth/session-end/session-end.component';
 import { VacinaApplyComponent } from './dashboard/dashboard-applicator/vacina-apply/vacina-apply.component';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/material';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_DATE_LOCALE } from '../../node_modules/@angular/material';
 import { SearchComponent } from './dashboard/dashboard-applicator/search/search.component';
 import { PostoComponent } from './dashboard/dashboard-applicator/posto/posto.component';
 import { HelpComponent } from './help/help.component';
@@ -40,6 +40,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 import 'hammerjs';
 import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
+
 
 @NgModule({
   declarations: [
@@ -79,9 +85,14 @@ import { NgxHmCarouselModule } from 'ngx-hm-carousel';
     ReactiveFormsModule,
     NgxUiLoaderModule,
     InterceptorModule,
-    NgxHmCarouselModule
+    NgxHmCarouselModule,
+      
+
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' }    ,
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
 
   ],
